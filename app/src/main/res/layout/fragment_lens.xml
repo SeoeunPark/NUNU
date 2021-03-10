@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:theme="@style/AppTheme"
+    android:layout_height="match_parent"
+    tools:context=".Lens">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/fab_plus"
+            app:backgroundTint="#434A54"
+            app:fabSize="auto"
+            app:maxImageSize="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_alignParentEnd="true" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/fab"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/today"
+            android:visibility="invisible"
+            app:backgroundTint="#ffffff"
+            app:elevation="6dp"
+            app:maxImageSize="36dp"
+            app:pressedTranslationZ="12dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:id="@+id/fab1text"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="95dp"
+            android:layout_width="120dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:text="원데이 렌즈"
+            android:background="@drawable/round_background2"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@id/fab1"
+            android:gravity="center_horizontal"
+            android:layout_toStartOf="@id/fab1" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_above="@id/fab1"
+            android:src="@drawable/month"
+            android:visibility="invisible"
+            app:backgroundTint="#ffffff"
+            app:elevation="6dp"
+            app:maxImageSize="36dp"
+            android:layout_marginBottom="5dp"
+            app:pressedTranslationZ="12dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp" />
+        <TextView
+            android:id="@+id/fab2text"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="155dp"
+            android:layout_width="110dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_background2"
+            android:textSize="20sp"
+            android:text="기간 렌즈"
+            android:visibility="invisible"
+            android:textColor="@color/white"
+            android:layout_toLeftOf="@id/fab2"
+            android:gravity="center_horizontal"/>
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/emptyimage"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/search"
+            app:lottie_loop="true"/>
+
+        <TextView
+            android:id="@+id/emptytext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/emptyimage"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:text="아직 렌즈정보가 없어요."
+            android:textSize="20sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="8dp" />
+
+        <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+            <androidx.fragment.app.FragmentContainerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/lowerCalculator" />
+        </FrameLayout>
+
+    </RelativeLayout>
+</FrameLayout>

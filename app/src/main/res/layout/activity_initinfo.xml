@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/welcome"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            app:lottie_autoPlay="true"
+            android:layout_marginTop="40dp"
+            app:lottie_rawRes="@raw/welcomeorange" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            android:textSize="26sp"
+            android:layout_below="@id/welcome"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="50dp"
+            />
+
+        <TextView
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="왼쪽 시력"
+            android:layout_below="@id/set_name"
+            android:textColor="@color/black"
+            android:layout_marginLeft="50dp"
+            android:textSize="26sp" />
+
+
+        <EditText
+            android:id="@+id/set_left"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="ex) 0.8"
+            android:inputType="phone"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@id/left"/>
+
+        <EditText
+            android:id="@+id/set_name"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="ex) 누누"
+            android:inputType="text"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/name"
+            android:layout_marginLeft="50dp"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/set_right"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="ex) 0.7"
+            android:inputType="phone"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/right"
+            android:textSize="20sp"/>
+
+
+        <TextView
+            android:id="@+id/right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오른쪽 시력"
+            android:textSize="26sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@id/set_left"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:text="시작하기"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_below="@id/set_right"
+            android:layout_marginRight="70dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="30dp"/>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
