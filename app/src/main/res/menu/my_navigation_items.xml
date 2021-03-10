@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/eye"
+        android:id="@+id/stretching"
         android:icon="@drawable/eye"
+        android:enabled="true"
+        android:title="Stretching"/>
+    <item
+        android:id="@+id/calendar"
+        android:icon="@drawable/calendar"
         android:enabled="true"
         android:title="Lens"/>
     <item
@@ -11,6 +16,11 @@
         android:enabled="true"
         android:checked="true"
         android:title="Home"/>
+    <item
+        android:id="@+id/graph"
+        android:icon="@drawable/graph"
+        android:enabled="true"
+        android:title="Graph"/>
     <item
         android:id="@+id/user"
         android:icon="@drawable/person"

@@ -24,7 +24,7 @@ import java.util.Locale;
 import petrov.kristiyan.colorpicker.ColorPicker;
 
 public class Monthly extends AppCompatActivity {
-    public static final String EXTRA_REPLY = "com.example.NUNU.REPLY";
+    public static final String EXTRA_REPLY = "com.nunu.NUNU.REPLY";
     Calendar myCalendar = Calendar.getInstance();
 
     private Button pallete;

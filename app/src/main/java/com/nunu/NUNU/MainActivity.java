@@ -8,13 +8,18 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
 public class MainActivity extends AppCompatActivity {
     MeowBottomNavigation bottomNavigationView;
-    private final static int LENS = 1;
-    private final static int HOME = 2;
-    private final static int PERSON = 3;
+    private final static int STRETCHING =1;
+    private final static int CALENDAR = 2;
+    private final static int HOME = 3;
+    private final static int GRAPH = 4;
+    private final static int USER= 5;
 
-    Lens fragment1; // 렌즈 fragment
-    EyeTest fragment2; // 홈 fragment
-    User fragment3; // 유저 fragment
+    //Lens fragment1; // 렌즈 fragment
+    Stretching fragment1;
+    Calendar fragment2;
+    Lens fragment3; // 홈 fragment
+    User fragment4; // 유저 fragment
+    Option fragment5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +28,21 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = (MeowBottomNavigation) findViewById(R.id.bottomNavigationView);
 
         bottomNavigationView.add(new MeowBottomNavigation.Model(1,R.drawable.eye));
-        bottomNavigationView.add(new MeowBottomNavigation.Model(2,R.drawable.test));
-        bottomNavigationView.add(new MeowBottomNavigation.Model(3,R.drawable.person));
+        bottomNavigationView.add(new MeowBottomNavigation.Model(2,R.drawable.calendar));
+        bottomNavigationView.add(new MeowBottomNavigation.Model(3,R.drawable.home));
+        bottomNavigationView.add(new MeowBottomNavigation.Model(4,R.drawable.graph));
+        bottomNavigationView.add(new MeowBottomNavigation.Model(5,R.drawable.person));
         //프래그먼트 생성
-        fragment1 = new Lens();
-        fragment2 = new EyeTest();
-        fragment3 = new User();
+        //fragment1 = new Lens();
+        fragment1 = new Stretching();
+        fragment2 = new Calendar();
+        fragment3 = new Lens();
+        fragment4 = new User();
+        fragment5 = new Option();
+
 
         //제일 처음 보여지는 창
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment1).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment3).commitAllowingStateLoss();
         navi_bar(); // 메뉴 선택
     }
     //bottomnavigationview의 아이콘을 선택 했을때 fragment 띄우기
@@ -46,17 +57,25 @@ public class MainActivity extends AppCompatActivity {
             public void onShowItem(MeowBottomNavigation.Model item) {
                 //Fragment select_fragment = null;
                 switch (item.getId()){
-                    case LENS:
+                    case STRETCHING:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment1).commitAllowingStateLoss();
                         //select_fragment = new Lens();
                         break;
-                    case HOME:
+                    case CALENDAR:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment2).commitAllowingStateLoss();
                         //select_fragment = new EyeTest();
                         break;
-                    case PERSON:
+                    case HOME:
                         //select_fragment = new User();
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment3).commitAllowingStateLoss();
+                        break;
+                    case GRAPH:
+                        //select_fragment = new User();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment4).commitAllowingStateLoss();
+                        break;
+                    case USER:
+                        //select_fragment = new User();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment5).commitAllowingStateLoss();
                         break;
                 }
                 //getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,select_fragment).commit();
