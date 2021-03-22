@@ -57,7 +57,6 @@ public class User extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_user, container, false);
         initInfo(rootView);
         initGraph(rootView);
-        initButton(rootView);
         return rootView;
     }
 
@@ -169,14 +168,5 @@ public class User extends Fragment {
         lineChart.invalidate();
     }
 
-    private void initButton(ViewGroup rootView){
-        ImageView setting = rootView.findViewById(R.id.goOption);
-        setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, option).commitAllowingStateLoss();
-            }
-        });
-    }
 
 }

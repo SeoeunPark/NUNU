@@ -37,13 +37,6 @@ public class Option extends Fragment {
                 .fallbackToDestructiveMigration ()
                 .allowMainThreadQueries()
                 .build();
-        ImageButton gobackbtn = (ImageButton)view.findViewById(R.id.goback_btn);
-        gobackbtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, User).commitAllowingStateLoss();
-            }
-        });
 
         ImageView goSettingbtn = (ImageView)view.findViewById(R.id.goSetting);
         goSettingbtn.setOnClickListener(new View.OnClickListener(){
