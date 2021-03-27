@@ -10,24 +10,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.nunu.NUNU.EditMonthly"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name="com.nunu.NUNU.EditOneday"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".LensInsert"></activity>
         <activity
-            android:name="com.nunu.NUNU.Detail"
+            android:name=".EditMonthly"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="com.nunu.NUNU.InitInfo"
+            android:name=".EditOneday"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="com.nunu.NUNU.Monthly"
+            android:name=".Detail"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="com.nunu.NUNU.Oneday"
+            android:name=".InitInfo"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="com.nunu.NUNU.SplashActivity"
+            android:name=".Monthly"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Oneday"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -37,9 +40,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.nunu.NUNU.MainActivity"
+            android:name=".MainActivity"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>
