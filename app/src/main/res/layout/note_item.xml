@@ -10,7 +10,7 @@
     app:cardCornerRadius="15dp"
     app:cardElevation="5dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             >
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:orientation="horizontal"
                 android:layout_gravity="center_vertical">
@@ -48,7 +48,6 @@
             android:layout_margin="5dp"
             android:layout_weight="8"
             android:orientation="vertical">
-
             <TextView
                 android:id="@+id/lens_name"
                 android:layout_width="match_parent"
@@ -113,7 +112,7 @@
                     </RelativeLayout>
                 </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.cardview.widget.CardView>
