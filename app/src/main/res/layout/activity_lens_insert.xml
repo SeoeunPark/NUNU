@@ -101,9 +101,10 @@
                             android:inputType="text"
                             android:textColor="#29367A"
                             android:textSize="18sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_name_text"
                             app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_kind_text" />
+                            app:layout_constraintTop_toBottomOf="@id/lens_kind_text"
+                            app:layout_constraintBottom_toTopOf="@id/imageView"
+                            />
 
 
                         <ImageView
@@ -117,6 +118,7 @@
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/lens_kind"
                             app:srcCompat="@drawable/camera"
+                            android:visibility="gone"
                             />
 
                         <Button
@@ -127,6 +129,7 @@
                             app:layout_constraintBottom_toTopOf="@id/lens_name_text"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/imageView"
+                            android:visibility="gone"
                             />
 
                         <Button
@@ -137,6 +140,7 @@
                             app:layout_constraintBottom_toTopOf="@id/lens_name_text"
                             app:layout_constraintLeft_toRightOf="@id/btnGallery"
                             app:layout_constraintTop_toBottomOf="@id/imageView"
+                            android:visibility="gone"
                             />
 
                         <TextView
@@ -149,7 +153,8 @@
                             android:textSize="20sp"
                             app:layout_constraintBottom_toTopOf="@id/lens_name"
                             app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_kind"
+                            app:layout_constraintTop_toBottomOf="@id/btnGallery"
+                            android:visibility="gone"
                             />
 
                         <EditText
@@ -164,6 +169,7 @@
                             app:layout_constraintBottom_toTopOf="@id/lens_type_text"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/lens_name_text"
+                            android:visibility="gone"
                             />
 
                         <TextView
@@ -177,6 +183,7 @@
                             app:layout_constraintBottom_toTopOf="@id/lens_type"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/lens_name"
+                            android:visibility="gone"
                             />
 
                         <EditText
@@ -193,6 +200,7 @@
                             app:layout_constraintBottom_toTopOf="@id/lens_cnt_text"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/lens_type_text"
+                            android:visibility="gone"
                             />
 
                         <TextView
@@ -206,6 +214,7 @@
                             app:layout_constraintBottom_toTopOf="@id/lens_cnt"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/lens_type"
+                            android:visibility="gone"
                             />
 
                         <EditText
@@ -220,6 +229,7 @@
                             app:layout_constraintBottom_toTopOf="@id/lens_cycle_text"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/lens_cnt_text"
+                            android:visibility="gone"
                             />
 
                         <TextView
@@ -233,6 +243,7 @@
                             app:layout_constraintBottom_toTopOf="@id/lens_cycle"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/lens_cnt"
+                            android:visibility="gone"
                             />
 
                         <EditText
@@ -247,6 +258,7 @@
                             app:layout_constraintBottom_toTopOf="@id/lens_period_text"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/lens_cycle_text"
+                            android:visibility="gone"
                             />
 
 
@@ -261,6 +273,7 @@
                             app:layout_constraintBottom_toTopOf="@id/lens_period"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/lens_period"
+                            android:visibility="gone"
                             />
 
                         <EditText
@@ -276,6 +289,7 @@
                             app:layout_constraintBottom_toTopOf="@id/lens_color_text"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/lens_period_text"
+                            android:visibility="gone"
                             />
                         <!--
                         <TextView
@@ -316,6 +330,7 @@
                             app:layout_constraintBottom_toTopOf="@id/lens_color"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/lens_period"
+                            android:visibility="gone"
                             />
 
                         <Button
@@ -327,6 +342,7 @@
                             android:background="@drawable/pallete"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/lens_color_text"
+                            android:visibility="gone"
                             />
 
                         <Button
@@ -344,7 +360,6 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_color"
                             />
                         />
 

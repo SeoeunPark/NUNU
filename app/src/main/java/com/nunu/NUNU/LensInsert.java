@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,12 +42,30 @@ public class LensInsert extends AppCompatActivity {
     private Button pallete;//팔레트
     private Button lens_save;
     private EditText et_Date;
-    private int kind_num; // 1은 원데이 2는 기간렌즈
+    private int kind_num =0; // 1은 원데이 2는 기간렌즈
+    private ImageView imageView;
+    private Button gallery;
+    private Button camera;
+
+    private TextView lens_name_text;
+    private TextView lens_type_text;
+    private TextView lens_cnt_text;
+    private TextView lens_cycle_text;
+    private TextView lens_period_text;
+    private TextView lens_color_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lens_insert);
+
+        lens_name_text = (TextView)findViewById(R.id.lens_name_text);
+        lens_type_text = (TextView)findViewById(R.id.lens_type_text);
+        lens_cnt_text = (TextView)findViewById(R.id.lens_cnt_text);
+        lens_cycle_text = (TextView)findViewById(R.id.lens_cycle_text);
+        lens_period_text = (TextView) findViewById(R.id.lens_period_text);
+        lens_color_text = (TextView)findViewById(R.id.lens_color_text);
+
 
         et_Date = (EditText) findViewById(R.id.Oneday_period);
         lens_kind = (EditText)findViewById(R.id.lens_kind);
@@ -57,6 +77,10 @@ public class LensInsert extends AppCompatActivity {
         pallete = (Button)findViewById(R.id.lens_color);
         lens_save = findViewById(R.id.lens_save);
         cancel = (Button) findViewById(R.id.to_main);
+        imageView = (ImageView)findViewById(R.id.imageView);
+        gallery = (Button)findViewById(R.id.btnGallery);
+        camera = (Button)findViewById(R.id.btnCamera);
+
 
         final Context context = this;
 
@@ -68,7 +92,8 @@ public class LensInsert extends AppCompatActivity {
 
         lens_kind.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                kind();
+                v = v;
+                kind(v);
             }
         });
 
@@ -77,7 +102,7 @@ public class LensInsert extends AppCompatActivity {
                 Intent replyIntent = new Intent();
                 if (TextUtils.isEmpty(lens_name.getText()) || TextUtils.isEmpty(lens_type.getText()) ||
                         TextUtils.isEmpty(clname)// || TextUtils.isEmpty(monthly_start.getText()) ||
-                        || TextUtils.isEmpty(lens_period.getText()) || TextUtils.isEmpty(lens_cycle.getText()) ) {
+                        || TextUtils.isEmpty(lens_period.getText()) ) {
                     Toast.makeText(context, "값을 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                     setResult(RESULT_CANCELED, replyIntent);
                 }
@@ -207,35 +232,64 @@ public class LensInsert extends AppCompatActivity {
                     dialog.dismiss();
                 }
             });
-
             AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
-        }
+            alertDialog.show(); }
     }
     //렌즈 종류 설정
-    public void kind(){
+    public void kind(View v){
         {
+            v=v;
             final CharSequence[] items ={"원데이렌즈","기간렌즈"};
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
             alertDialogBuilder.setTitle("렌즈종류 선택");
 
+            View finalV = v;
             alertDialogBuilder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     EditText type = (EditText) findViewById(R.id.lens_kind);
                     type.setText(items[id]);
                     dialog.dismiss();
+                    if(lens_kind.getText().toString().equals("원데이렌즈")) {
+                        kind_num=1;
+                        imageView.setVisibility(finalV.VISIBLE);
+                        gallery.setVisibility(finalV.VISIBLE);
+                        camera.setVisibility(finalV.VISIBLE);
+                        lens_name_text.setVisibility(finalV.VISIBLE);
+                        lens_name.setVisibility(finalV.VISIBLE);
+                        lens_type_text.setVisibility(finalV.VISIBLE);
+                        lens_type.setVisibility(finalV.VISIBLE);
+                        lens_cnt_text.setVisibility(finalV.VISIBLE);
+                        lens_cnt.setVisibility(finalV.VISIBLE);
+                        lens_cycle_text.setVisibility(finalV.GONE);//기간만
+                        lens_cycle.setVisibility(finalV.GONE);//기간만
+                        lens_period_text.setVisibility(finalV.VISIBLE);
+                        lens_period.setVisibility(finalV.VISIBLE);
+                        lens_color_text.setVisibility(finalV.VISIBLE);
+                        pallete.setVisibility(finalV.VISIBLE);
+                    }else if(lens_kind.getText().toString().equals("기간렌즈")){
+                        kind_num=2;
+                        imageView.setVisibility(finalV.VISIBLE);
+                        gallery.setVisibility(finalV.VISIBLE);
+                        camera.setVisibility(finalV.VISIBLE);
+                        lens_name_text.setVisibility(finalV.VISIBLE);
+                        lens_name.setVisibility(finalV.VISIBLE);
+                        lens_type_text.setVisibility(finalV.VISIBLE);
+                        lens_type.setVisibility(finalV.VISIBLE);
+                        lens_cnt_text.setVisibility(finalV.VISIBLE);
+                        lens_cnt.setVisibility(finalV.VISIBLE);
+                        lens_cycle_text.setVisibility(finalV.VISIBLE);//기간만
+                        lens_cycle.setVisibility(finalV.VISIBLE);//기간만
+                        lens_period_text.setVisibility(finalV.VISIBLE);
+                        lens_period.setVisibility(finalV.VISIBLE);
+                        lens_color_text.setVisibility(finalV.VISIBLE);
+                        pallete.setVisibility(finalV.VISIBLE);
+                    }
                 }
+
             });
             AlertDialog alertDialog = alertDialogBuilder.create();
             alertDialog.show();
-            if(lens_kind.getText().toString()=="원데이렌즈") {
-                    kind_num=1;
-                    findViewById(R.id.imageView).setVisibility(View.VISIBLE);
-
-            }else{
-                    kind_num=2;
             }
-        }
     }
     //메인스레드에서 데이터베이스에 접근할 수 없으므로 AsyncTask를 사용하도록 한다.
     public static class insertAsyncTask extends AsyncTask<Note, Void, Void> {
