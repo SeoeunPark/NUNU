@@ -4,7 +4,7 @@
         android:id="@+id/stretching"
         android:icon="@drawable/eye"
         android:enabled="true"
-        android:title="Stretching"/>
+        android:title="Stretching" />
     <item
         android:id="@+id/calendar"
         android:icon="@drawable/calendar"
@@ -13,17 +13,16 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/home"
-        android:enabled="true"
         android:checked="true"
         android:title="Home"/>
     <item
         android:id="@+id/graph"
-        android:icon="@drawable/graph"
+        android:icon="@drawable/person"
         android:enabled="true"
         android:title="Graph"/>
     <item
         android:id="@+id/user"
-        android:icon="@drawable/person"
+        android:icon="@drawable/setting"
         android:enabled="true"
         android:title="User"/>
 </menu>

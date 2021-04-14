@@ -10,7 +10,7 @@
     app:cardCornerRadius="15dp"
     app:cardElevation="5dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
                     </RelativeLayout>
                 </LinearLayout>
         </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 
 </androidx.cardview.widget.CardView>

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,9 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -38,14 +41,18 @@ import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 public class Lens extends Fragment implements View.OnClickListener {
     private static final String TAG = "Lens";
-    private Animation fab_open, fab_close;
-    private Boolean isFabOpen = false;
-    private FloatingActionButton fab, fab1, fab2;
+//    private Animation fab_open, fab_close;
+//    private Boolean isFabOpen = false;
+//    private FloatingActionButton fab, fab1, fab2;
     RecyclerView recyclerView;
     private List<Note> mDataItemList;
     private NoteAdapter mListAdapter;
     private TextView emptyText;
-    private TextView fab1t, fab2t;
+    private Button oneday_btn;
+    private Button monthly_btn;
+    private Button add_lens_btn;
+    private int one_or_mon =1;
+//    private TextView fab1t, fab2t;
     private com.airbnb.lottie.LottieAnimationView emptyImage;
     //private ImageView emptyImage;
     NoteAdapter adapter;
@@ -80,8 +87,11 @@ public class Lens extends Fragment implements View.OnClickListener {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_lens, container, false);
         emptyImage = (LottieAnimationView) rootView.findViewById(R.id.emptyimage);
         emptyText = (TextView) rootView.findViewById(R.id.emptytext);
-        fab1t = (TextView) rootView.findViewById(R.id.fab1text);
-        fab2t = (TextView) rootView.findViewById(R.id.fab2text);
+//        fab1t = (TextView) rootView.findViewById(R.id.fab1text);
+//        fab2t = (TextView) rootView.findViewById(R.id.fab2text);
+        monthly_btn = (Button)rootView.findViewById(R.id.monthly_select_btn);
+        oneday_btn = (Button)rootView.findViewById(R.id.oneday_select_btn);
+        add_lens_btn = (Button)rootView.findViewById(R.id.add_lens_btn);
         super.onCreate(savedInstanceState);
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
         final NoteAdapter adapter = new NoteAdapter(getActivity());
@@ -181,7 +191,41 @@ public class Lens extends Fragment implements View.OnClickListener {
             }
         });
         //이건 floating 버튼 애니메이션
-        initFL(rootView);
+
+        add_lens_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(one_or_mon ==1){
+                    Intent o_intent = new Intent(view.getContext(), Oneday.class); //이거 진짜 중요
+                    startActivityForResult(o_intent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
+                }else if (one_or_mon==2){
+                    Intent m_intent = new Intent(view.getContext(), Monthly.class); //이거 진짜 중요
+                    startActivityForResult(m_intent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
+                }
+            }
+        });
+
+        oneday_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                oneday_btn.setBackgroundResource(R.drawable.lens_select_button);
+                oneday_btn.setTextColor(Color.WHITE);
+                monthly_btn.setBackgroundResource(R.drawable.lens_unselect_button);
+                monthly_btn.setTextColor(Color.parseColor("#7C889A"));
+                one_or_mon=1;
+            }
+        });
+        monthly_btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                monthly_btn.setBackgroundResource(R.drawable.lens_select_button);
+                monthly_btn.setTextColor(Color.WHITE);
+                oneday_btn.setBackgroundResource(R.drawable.lens_unselect_button);
+                oneday_btn.setTextColor(Color.parseColor("#7C889A"));
+                one_or_mon=2;
+            }
+        });
+
+//        initFL(rootView);
         recyclerView.setAdapter(adapter);
         return rootView;
     } // end of onCreateView
@@ -219,18 +263,18 @@ public class Lens extends Fragment implements View.OnClickListener {
         }
     }
 
-    private void initFL(ViewGroup rootView) {
-        fab_open = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_open);
-        fab_close = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_close);
-
-        fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
-        fab1 = (FloatingActionButton) rootView.findViewById(R.id.fab1);
-        fab2 = (FloatingActionButton) rootView.findViewById(R.id.fab2);
-
-        fab.setOnClickListener(this);
-        fab1.setOnClickListener(this);
-        fab2.setOnClickListener(this);
-    }
+//    private void initFL(ViewGroup rootView) {
+//        fab_open = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_open);
+//        fab_close = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_close);
+//
+//        fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
+//        fab1 = (FloatingActionButton) rootView.findViewById(R.id.fab1);
+//        fab2 = (FloatingActionButton) rootView.findViewById(R.id.fab2);
+//
+//        fab.setOnClickListener(this);
+//        fab1.setOnClickListener(this);
+//        fab2.setOnClickListener(this);
+//    }
 
     //floating 버튼 눌르면 뜨게 작업
 
@@ -242,29 +286,34 @@ public class Lens extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        switch (id) {
-            case R.id.fab:
-                //anim();
-                Intent intent = new Intent(v.getContext(), LensInsert.class); //이거 진짜 중요
-                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
-                break;
-                /*
-            case R.id.fab1:
-                Intent intent = new Intent(v.getContext(), Oneday.class); //이거 진짜 중요
-                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
-                anim();
-                break;
-            case R.id.fab2:
-                Intent mintent = new Intent(v.getContext(), Monthly.class); //이거 진짜 중요
-                startActivityForResult(mintent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
-                anim();
-                break;
+    public void onClick(View view) {
 
-                 */
-        }
     }
+
+//    @Override
+//    public void onClick(View v) {
+//        int id = v.getId();
+//        switch (id) {
+//            case R.id.fab:
+//                //anim();
+//                Intent intent = new Intent(v.getContext(), LensInsert.class); //이거 진짜 중요
+//                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
+//                break;
+//                /*
+//            case R.id.fab1:
+//                Intent intent = new Intent(v.getContext(), Oneday.class); //이거 진짜 중요
+//                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
+//                anim();
+//                break;
+//            case R.id.fab2:
+//                Intent mintent = new Intent(v.getContext(), Monthly.class); //이거 진짜 중요
+//                startActivityForResult(mintent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
+//                anim();
+//                break;
+//
+//                 */
+//        }
+//    }
         /*
         public void anim() {
             if (isFabOpen) {

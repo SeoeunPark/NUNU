@@ -1,9 +1,7 @@
 package com.nunu.NUNU;
 
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
 public class MainActivity extends AppCompatActivity {
@@ -11,8 +9,8 @@ public class MainActivity extends AppCompatActivity {
     private final static int STRETCHING =1;
     private final static int CALENDAR = 2;
     private final static int HOME = 3;
-    private final static int GRAPH = 4;
-    private final static int USER= 5;
+    private final static int USER = 4;
+    private final static int SETTING= 5;
 
     //Lens fragment1; // 렌즈 fragment
     Stretching fragment1;
@@ -30,10 +28,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.add(new MeowBottomNavigation.Model(1,R.drawable.eye));
         bottomNavigationView.add(new MeowBottomNavigation.Model(2,R.drawable.calendar));
         bottomNavigationView.add(new MeowBottomNavigation.Model(3,R.drawable.home));
-        bottomNavigationView.add(new MeowBottomNavigation.Model(4,R.drawable.graph));
-        bottomNavigationView.add(new MeowBottomNavigation.Model(5,R.drawable.person));
+        bottomNavigationView.add(new MeowBottomNavigation.Model(4,R.drawable.person));
+        bottomNavigationView.add(new MeowBottomNavigation.Model(5,R.drawable.setting));
         //프래그먼트 생성
-        //fragment1 = new Lens();
         fragment1 = new Stretching();
         fragment2 = new Calendar();
         fragment3 = new Lens();
@@ -69,11 +66,11 @@ public class MainActivity extends AppCompatActivity {
                         //select_fragment = new User();
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment3).commitAllowingStateLoss();
                         break;
-                    case GRAPH:
+                    case USER:
                         //select_fragment = new User();
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment4).commitAllowingStateLoss();
                         break;
-                    case USER:
+                    case SETTING:
                         //select_fragment = new User();
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment5).commitAllowingStateLoss();
                         break;

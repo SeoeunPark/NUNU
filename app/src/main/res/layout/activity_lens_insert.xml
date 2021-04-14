@@ -5,293 +5,283 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LensInsert">
-        <FrameLayout
-            android:id="@+id/frameLayout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="4dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
 
-            //뒤에 파란색
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        //뒤에 파란색
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="10"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_weight="8"
-                    android:layout_height="match_parent"
-                    android:background="#D265B0E2"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
-            </LinearLayout>
+                android:layout_weight="8"
+                android:background="#D265B0E2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/round_background"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/to_main"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/fab_close"
+                android:backgroundTint="@color/dartblue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/round_background"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/to_main"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:background="@drawable/fab_close"
-                    android:backgroundTint="@color/dartblue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-                <ScrollView
-                    android:layout_width="match_parent"
+                android:fillViewport="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:fillViewport="true">
+                    android:layout_gravity="center_horizontal">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <TextView
+                        android:id="@+id/lens_title"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="N U N U"
+                        android:textColor="#000000"
+                        android:textSize="30sp"
+                        app:layout_constraintBottom_toTopOf="@id/lens_kind_text"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/lens_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="N U N U"
-                            android:textColor="#000000"
-                            android:textSize="30sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_kind_text"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/lens_kind_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="렌즈 종류"
+                        android:textColor="@color/dartblue"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@id/lens_kind"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_title" />
 
-                        <TextView
-                            android:id="@+id/lens_kind_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:text="렌즈 종류"
-                            android:textColor="@color/dartblue"
-                            android:textSize="20sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_kind"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_title" />
-
-                        <EditText
-                            android:id="@+id/lens_kind"
-                            android:layout_width="300dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:editable="false"
-                            android:focusable="false"
-                            android:hint="ex.원데이렌즈"
-                            android:inputType="text"
-                            android:textColor="#29367A"
-                            android:textSize="18sp"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_kind_text"
-                            app:layout_constraintBottom_toTopOf="@id/imageView"
-                            />
+                    <EditText
+                        android:id="@+id/lens_kind"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:hint="ex.원데이렌즈"
+                        android:inputType="text"
+                        android:textColor="#29367A"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@id/imageView"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_kind_text" />
 
 
-                        <ImageView
-                            android:id="@+id/imageView"
-                            android:layout_width="200dp"
-                            android:layout_height="200dp"
-                            android:background="@drawable/camera_back"
-                            android:layout_marginTop="10dp"
-                            app:layout_constraintBottom_toTopOf="@+id/btnGallery"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_kind"
-                            app:srcCompat="@drawable/camera"
-                            android:visibility="gone"
-                            />
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/camera_back"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@+id/btnGallery"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_kind"
+                        app:srcCompat="@drawable/camera" />
 
-                        <Button
-                            android:id="@+id/btnGallery"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Gallery"
-                            app:layout_constraintBottom_toTopOf="@id/lens_name_text"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/imageView"
-                            android:visibility="gone"
-                            />
+                    <Button
+                        android:id="@+id/btnGallery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gallery"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_name_text"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imageView" />
 
-                        <Button
-                            android:id="@+id/btnCamera"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Camera"
-                            app:layout_constraintBottom_toTopOf="@id/lens_name_text"
-                            app:layout_constraintLeft_toRightOf="@id/btnGallery"
-                            app:layout_constraintTop_toBottomOf="@id/imageView"
-                            android:visibility="gone"
-                            />
+                    <Button
+                        android:id="@+id/btnCamera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Camera"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_name_text"
+                        app:layout_constraintLeft_toRightOf="@id/btnGallery"
+                        app:layout_constraintTop_toBottomOf="@id/imageView" />
 
-                        <TextView
-                            android:id="@+id/lens_name_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="렌즈 이름"
-                            android:textColor="@color/dartblue"
-                            android:textSize="20sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_name"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/btnGallery"
-                            android:visibility="gone"
-                            />
+                    <TextView
+                        android:id="@+id/lens_name_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="렌즈 이름"
+                        android:textColor="@color/dartblue"
+                        android:textSize="20sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_name"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/btnGallery" />
 
-                        <EditText
-                            android:id="@+id/lens_name"
-                            android:layout_width="300dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:hint="ex.악마 홀로리스 원데이 "
-                            android:inputType="text"
-                            android:textColor="#29367A"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_type_text"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_name_text"
-                            android:visibility="gone"
-                            />
+                    <EditText
+                        android:id="@+id/lens_name"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:hint="ex.악마 홀로리스 원데이 "
+                        android:inputType="text"
+                        android:textColor="#29367A"
+                        android:textSize="18sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_type_text"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_name_text" />
 
-                        <TextView
-                            android:id="@+id/lens_type_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="렌즈 유형"
-                            android:textColor="@color/dartblue"
-                            android:textSize="20sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_type"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_name"
-                            android:visibility="gone"
-                            />
+                    <TextView
+                        android:id="@+id/lens_type_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="렌즈 유형"
+                        android:textColor="@color/dartblue"
+                        android:textSize="20sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_type"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_name" />
 
-                        <EditText
-                            android:id="@+id/lens_type"
-                            android:layout_width="300dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:clickable="true"
-                            android:editable="false"
-                            android:focusable="false"
-                            android:hint="ex.소프트렌즈"
-                            android:textColor="#29367A"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_cnt_text"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_type_text"
-                            android:visibility="gone"
-                            />
+                    <EditText
+                        android:id="@+id/lens_type"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:clickable="true"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:hint="ex.소프트렌즈"
+                        android:textColor="#29367A"
+                        android:textSize="18sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_cnt_text"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_type_text" />
 
-                        <TextView
-                            android:id="@+id/lens_cnt_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="보유 개수"
-                            android:textColor="@color/dartblue"
-                            android:textSize="20sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_cnt"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_type"
-                            android:visibility="gone"
-                            />
+                    <TextView
+                        android:id="@+id/lens_cnt_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="보유 개수"
+                        android:textColor="@color/dartblue"
+                        android:textSize="20sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_cnt"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_type" />
 
-                        <EditText
-                            android:id="@+id/lens_cnt"
-                            android:layout_width="300dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:hint="ex.30 "
-                            android:inputType="phone"
-                            android:textColor="#29367A"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_cycle_text"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_cnt_text"
-                            android:visibility="gone"
-                            />
+                    <EditText
+                        android:id="@+id/lens_cnt"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:hint="ex.30 "
+                        android:inputType="phone"
+                        android:textColor="#29367A"
+                        android:textSize="18sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_cycle_text"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_cnt_text" />
 
-                        <TextView
-                            android:id="@+id/lens_cycle_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="착용 주기"
-                            android:textColor="@color/dartblue"
-                            android:textSize="20sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_cycle"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_cnt"
-                            android:visibility="gone"
-                            />
+                    <TextView
+                        android:id="@+id/lens_cycle_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="착용 주기"
+                        android:textColor="@color/dartblue"
+                        android:textSize="20sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_cycle"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_cnt" />
 
-                        <EditText
-                            android:id="@+id/lens_cycle"
-                            android:layout_width="300dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:hint="ex.2주 "
-                            android:inputType="text"
-                            android:textColor="#29367A"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_period_text"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_cycle_text"
-                            android:visibility="gone"
-                            />
+                    <EditText
+                        android:id="@+id/lens_cycle"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:hint="ex.2주 "
+                        android:inputType="text"
+                        android:textColor="#29367A"
+                        android:textSize="18sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_period_text"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_cycle_text" />
 
 
-                        <TextView
-                            android:id="@+id/lens_period_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="유효기간"
-                            android:textColor="@color/dartblue"
-                            android:textSize="20sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_period"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_period"
-                            android:visibility="gone"
-                            />
+                    <TextView
+                        android:id="@+id/lens_period_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="유효기간"
+                        android:textColor="@color/dartblue"
+                        android:textSize="20sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_period"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_period" />
 
-                        <EditText
-                            android:id="@+id/lens_period"
-                            android:layout_width="300dp"
-                            android:layout_height="wrap_content"
-                            android:clickable="true"
-                            android:editable="false"
-                            android:focusable="false"
-                            android:hint="YYYY/MM/DD"
-                            android:textColor="#29367A"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_color_text"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_period_text"
-                            android:visibility="gone"
-                            />
-                        <!--
+                    <EditText
+                        android:id="@+id/lens_period"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:hint="YYYY/MM/DD"
+                        android:textColor="#29367A"
+                        android:textSize="18sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_color_text"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_period_text" />
+                    <!--
                         <TextView
                             android:id="@+id/wave_text"
                             android:layout_width="wrap_content"
@@ -319,57 +309,54 @@
                             app:layout_constraintTop_toTopOf="@id/Monthly_start"/>
                        -->
 
-                        <TextView
-                            android:id="@+id/lens_color_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="색상"
-                            android:textColor="@color/dartblue"
-                            android:textSize="20sp"
-                            app:layout_constraintBottom_toTopOf="@id/lens_color"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_period"
-                            android:visibility="gone"
-                            />
+                    <TextView
+                        android:id="@+id/lens_color_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="색상"
+                        android:textColor="@color/dartblue"
+                        android:textSize="20sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/lens_color"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_period" />
 
-                        <Button
-                            android:id="@+id/lens_color"
-                            android:layout_width="55dp"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/lens_color_text"
-                            android:layout_marginTop="4dp"
-                            android:background="@drawable/pallete"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lens_color_text"
-                            android:visibility="gone"
-                            />
+                    <Button
+                        android:id="@+id/lens_color"
+                        android:layout_width="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/lens_color_text"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/pallete"
+                        android:visibility="gone"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lens_color_text" />
 
-                        <Button
-                            android:id="@+id/lens_save"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="16dp"
-                            android:background="@drawable/button_background2"
-                            android:gravity="center_horizontal"
-                            android:text="저장"
-                            android:textAlignment="center"
-                            android:textColor="@color/white"
-                            android:textSize="20sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            />
-                        />
+                    <Button
+                        android:id="@+id/lens_save"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/button_background2"
+                        android:gravity="center_horizontal"
+                        android:text="저장"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent" />
+                    />
 
-                        <androidx.constraintlayout.widget.Group
-                            android:id="@+id/group"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                    <androidx.constraintlayout.widget.Group
+                        android:id="@+id/group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </ScrollView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </FrameLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
