@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#a0c0ee</item>
+        <item name="colorPrimary">#F2a0c0ee</item>
         <!--<item name="colorPrimaryDark">#3498db</item>-->
         <item name="android:textColorPrimary">#ffffff</item>
         <item name="colorAccent">@color/colorAccent</item>
