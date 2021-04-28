@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = (MeowBottomNavigation) findViewById(R.id.bottomNavigationView);
 
         bottomNavigationView.show(3,true);
-
         bottomNavigationView.add(new MeowBottomNavigation.Model(1,R.drawable.eye));
         bottomNavigationView.add(new MeowBottomNavigation.Model(2,R.drawable.calendar));
         bottomNavigationView.add(new MeowBottomNavigation.Model(3,R.drawable.home));
