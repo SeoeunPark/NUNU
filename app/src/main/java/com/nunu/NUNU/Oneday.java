@@ -129,7 +129,7 @@ public class Oneday extends AppCompatActivity  {
         colors.add("#493d26"); //mocha
         colors.add("#657383"); //gray
         colors.add("#000000"); //black
-        colors.add("#fff380"); //yellow
+        colors.add("#f9d71c"); //yellow
         colors.add("#387c44"); //green
         colors.add("#4863ad"); //blue
         colors.add("#e38aae"); //pink

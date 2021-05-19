@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".EditOneday">
 
     <FrameLayout
@@ -16,44 +17,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        //뒤에 파란색
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="1"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_weight="0.5"
-                android:layout_height="match_parent"
-                android:background="#D265B0E2"
-                />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
-        </LinearLayout>
+<!--        //뒤에 파란색-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:weightSum="1"-->
+<!--            android:orientation="vertical">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_weight="0.5"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="#D265B0E2"-->
+<!--                />-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                />-->
+<!--        </LinearLayout>-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/round_background"
             android:orientation="horizontal">
-
+            <Button
+                android:id="@+id/eto_main"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/fab_close"
+                android:backgroundTint="@color/dartblue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fillViewport="true">
 
+
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp">
+                    android:layout_gravity="center">
 
                     <TextView
                         android:id="@+id/eone_title_text"
@@ -61,7 +74,7 @@
                         android:layout_height="wrap_content"
                         android:text="원데이 렌즈 수정"
                         android:textColor="#000000"
-                        android:textSize="30sp"
+                        android:textSize="40sp"
                         app:layout_constraintBottom_toTopOf="@id/eone_name_text"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -72,7 +85,7 @@
                         android:layout_height="wrap_content"
                         android:text="렌즈 이름"
                         android:textColor="@color/dartblue"
-                        android:textSize="23sp"
+                        android:textSize="30sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/eOneday_name"
                         app:layout_constraintTop_toBottomOf="@id/eone_title_text" />
@@ -84,7 +97,7 @@
                         android:hint="ex) 악마 홀로리스 원데이 "
                         android:inputType="text"
                         android:textColor="#29367A"
-                        android:textSize="20sp"
+                        android:textSize="23sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/eone_type_text"
                         app:layout_constraintTop_toBottomOf="@id/eone_name_text" />
@@ -96,7 +109,7 @@
                         android:layout_marginTop="10dp"
                         android:text="렌즈 유형"
                         android:textColor="@color/dartblue"
-                        android:textSize="23sp"
+                        android:textSize="30sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/eOneday_type"
                         app:layout_constraintTop_toBottomOf="@id/eOneday_name" />
@@ -104,7 +117,7 @@
 
                     <EditText
                         android:id="@+id/eOneday_type"
-                        android:layout_width="150dp"
+                        android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:clickable="true"
@@ -112,7 +125,7 @@
                         android:focusable="false"
                         android:hint="ex)소프트렌즈"
                         android:textColor="#29367A"
-                        android:textSize="20sp"
+                        android:textSize="23sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/eone_cnt_text"
                         app:layout_constraintTop_toBottomOf="@id/eone_type_text" />
@@ -124,7 +137,7 @@
                         android:layout_marginTop="10dp"
                         android:text="보유 개수"
                         android:textColor="@color/dartblue"
-                        android:textSize="23sp"
+                        android:textSize="30sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/eOneday_cnt"
                         app:layout_constraintTop_toBottomOf="@id/eOneday_type" />
@@ -132,13 +145,13 @@
 
                     <EditText
                         android:id="@+id/eOneday_cnt"
-                        android:layout_width="100dp"
+                        android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:hint="ex) 30 "
                         android:inputType="phone"
                         android:textColor="#29367A"
-                        android:textSize="20sp"
+                        android:textSize="23sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/eone_period_text"
                         app:layout_constraintTop_toBottomOf="@id/eone_cnt_text" />
@@ -151,7 +164,7 @@
                         android:layout_marginTop="10dp"
                         android:text="유효기간"
                         android:textColor="@color/dartblue"
-                        android:textSize="24sp"
+                        android:textSize="30sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/eOneday_period"
                         app:layout_constraintTop_toBottomOf="@id/eOneday_cnt" />
@@ -159,7 +172,7 @@
 
                     <EditText
                         android:id="@+id/eOneday_period"
-                        android:layout_width="wrap_content"
+                        android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:clickable="true"
@@ -167,7 +180,7 @@
                         android:focusable="false"
                         android:hint="yyyy/mm/dd"
                         android:textColor="#29367A"
-                        android:textSize="20sp"
+                        android:textSize="23sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/eone_color_text"
                         app:layout_constraintTop_toBottomOf="@id/eone_period_text" />
@@ -180,7 +193,7 @@
                         android:layout_marginTop="10dp"
                         android:text="색상"
                         android:textColor="@color/dartblue"
-                        android:textSize="23sp"
+                        android:textSize="30sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/eOneday_color"
                         app:layout_constraintTop_toBottomOf="@id/eOneday_period" />
@@ -193,37 +206,23 @@
                         android:layout_marginTop="4dp"
                         android:background="@drawable/pallete"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/eOneday_save"
                         app:layout_constraintTop_toBottomOf="@id/eone_color_text" />
 
                     <Button
                         android:id="@+id/eOneday_save"
-                        android:layout_width="wrap_content"
+                        android:layout_width="300dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
                         android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
                         android:layout_marginBottom="16dp"
-                        android:background="@drawable/button_background2"
+                        android:background="@drawable/whitebutton"
                         android:text="저장"
-                        android:textColor="@color/white"
+                        android:textColor="@color/dartblue"
                         android:textSize="30sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        app:layout_constraintLeft_toLeftOf="parent" />
 
-                    <Button
-                        android:id="@+id/eto_main"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
-                        android:background="@drawable/fab_close"
-                        android:backgroundTint="@color/dartblue"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </ScrollView>

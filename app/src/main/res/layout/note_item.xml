@@ -6,7 +6,7 @@
     android:layout_marginLeft="4dp"
     android:layout_marginRight="4dp"
     android:layout_marginBottom="4dp"
-    app:cardBackgroundColor="#ffffff"
+    app:cardBackgroundColor="#CCffffff"
     app:cardCornerRadius="15dp"
     app:cardElevation="5dp">
 
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="D - "
-                android:textColor="#004182"
+                android:textColor="#7C889A"
                 android:textStyle="bold"
                 android:textSize="25sp" />
              </LinearLayout>
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="렌즈 이름"
-                android:textColor="#004182"
+                android:textColor="#7C889A"
                 android:textStyle="bold"
                 android:textSize="25sp" />
 
@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="20dp"
-                    android:textColor="#005282"
+                    android:textColor="#7C889A"
                     android:text="보유개수:"
                     android:textSize="20sp" />
 
@@ -95,7 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:textColor="#005282"
+                    android:textColor="#7C889A"
                     android:layout_marginLeft="20dp"
                     android:text="~"
                     android:textSize="16sp"  />
@@ -104,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textColor="#005282"
+                    android:textColor="#7C889A"
                     android:layout_toRightOf="@id/st_en"
                     android:text="2020.10.09"
                     android:textSize="16sp"  />
