@@ -25,6 +25,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:weightSum="1">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -36,262 +37,199 @@
                 android:background="@drawable/round_background"
                 android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/type_om"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="10dp"
-                        android:text="원데이 렌즈"
-                        android:textColor="@color/dartblue"
-                        android:textSize="25sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintVertical_bias="0.005"
-                        app:layout_constraintTop_toBottomOf="@+id/nunu_ch" />
-                    <!--
-                    <TextView
-                        android:id="@+id/day_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="60dp"
-                        android:textColor="@color/dartblue"
-                        android:text="D"
-                        android:textSize="25sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-                    <TextView
-                        android:id="@+id/detail_day"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginTop="60dp"
-                        android:textColor="@color/dartblue"
-                        android:text="-5"
-                        android:textSize="25sp"
-                        app:layout_constraintStart_toEndOf="@+id/day_text"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-                        -->
-                    <!--
-                    <TextView
-                        android:id="@+id/period_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:textColor="@color/dartblue"
-                        android:layout_marginTop="10dp"
-                        android:text="유효기간:"
-                        android:textSize="15sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/day_text" />
+                <TextView
+                    android:id="@+id/type_om"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="100dp"
+                    android:fontFamily="@font/hansansmedium"
+                    android:text="원데이 렌즈"
+                    android:textColor="@color/dartblue"
+                    android:textSize="50sp"
+                    app:layout_constraintBottom_toTopOf="@id/nunu_ch"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-                    <TextView
-                        android:id="@+id/detail_period"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="10dp"
-                        android:textColor="@color/dartblue"
-                        android:text="2020.01.01"
-                        app:layout_constraintStart_toEndOf="@+id/period_text"
-                        app:layout_constraintTop_toBottomOf="@+id/day_text" />
-                        -->
-                    <TextView
-                        android:id="@+id/detail_period_start"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="5dp"
-                        android:text="착용 주기 : "
-                        android:textColor="@color/dartblue"
-                        android:textSize="20sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/type_om"  />
+                <ImageView
+                    android:id="@+id/nunu_ch"
+                    android:layout_width="400dp"
+                    android:layout_height="400dp"
+                    android:layout_marginTop="80dp"
+                    app:layout_constraintBottom_toTopOf="@id/d_day_text1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/type_om"
+                    app:srcCompat="@drawable/blue"
+                    tools:ignore="NotSibling" />
 
-                    <TextView
-                        android:id="@+id/detail_period_end"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:text="2020.12.12"
-                        android:textColor="@color/dartblue"
-                        android:textSize="20sp"
-                        app:layout_constraintBottom_toBottomOf="@id/wave_text"
-                        app:layout_constraintLeft_toRightOf="@id/wave_text" />
-                    <!--
-                    <TextView
-                        android:id="@+id/detail_period_start"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginLeft="500dp"
-                        android:layout_marginTop="10dp"
-                        android:text="착용 주기 : "
-                        android:textColor="@color/dartblue"
-                        android:textSize="20sp"
-                        app:layout_constraintBottom_toBottomOf="@id/detail_period_end"
-                        app:layout_constraintLeft_toRightOf="@id/detail_period_end"
-                        />
-                        -->
-                    <TextView
-                        android:id="@+id/wave_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="500dp"
-                        android:layout_marginTop="5dp"
-                        android:text="~"
-                        android:textColor="@color/dartblue"
-                        android:textSize="20sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/detail_period_start"
-                        />
+                <TextView
+                    android:id="@+id/d_day_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="20dp"
+                    android:text="D"
+                    android:textColor="#0E0000"
+                    android:textSize="50sp"
+                    app:layout_constraintBottom_toTopOf="@id/detail_name"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/nunu_ch" />
 
-                    <TextView
-                        android:id="@+id/detail_info"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="5dp"
-                        android:text="원데이 렌즈는 반드시 한번만 사용해주세요.\n일반형 1회용 렌즈는 보통 8시간의 착용시간을 권장합니다.\n실리콘 하이드로겔 소재의 렌즈는 12시간에서 14시까지도\n 착용이 가능합니다."
-                        android:textSize="15sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/wave_text" />
+                <TextView
+                    android:id="@+id/d_day_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:text="-"
+                    android:textColor="#0E0000"
+                    android:textSize="50sp"
+                    app:layout_constraintBottom_toBottomOf="@id/d_day_text1"
+                    app:layout_constraintLeft_toRightOf="@id/d_day_text1" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="30dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginRight="12dp"
-            app:layout_constraintEnd_toStartOf="@+id/detail_type2"
-            app:layout_constraintStart_toEndOf="@+id/detail_type"
-            app:layout_constraintTop_toBottomOf="@+id/detail_name"
-            app:srcCompat="@drawable/line" />
-        <Button
-            android:id="@+id/go_out"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/fab_close"
-            android:backgroundTint="@color/dartblue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.955"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/detail_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="악마 홀로리스"
-            android:textColor="#0E0000"
-            android:textSize="35sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.086"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.138" />
-
-        <TextView
-            android:id="@+id/d_day_text1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="D"
-            android:textColor="#0E0000"
-            android:textSize="35sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.06" />
-
-        <TextView
-            android:id="@+id/d_day_text2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:text="-"
-            android:textColor="#0E0000"
-            android:textSize="35sp"
-            app:layout_constraintBottom_toBottomOf="@id/d_day_text1"
-            app:layout_constraintLeft_toRightOf="@id/d_day_text1" />
-
-        <TextView
-            android:id="@+id/d_day_text3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:text="5"
-            android:textColor="#0E0000"
-            android:textSize="35sp"
-            app:layout_constraintBottom_toBottomOf="@id/d_day_text2"
-            app:layout_constraintLeft_toRightOf="@id/d_day_text2" />
+                <TextView
+                    android:id="@+id/d_day_text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:text="5"
+                    android:textColor="#0E0000"
+                    android:textSize="50sp"
+                    app:layout_constraintBottom_toBottomOf="@id/d_day_text2"
+                    app:layout_constraintLeft_toRightOf="@id/d_day_text2" />
 
 
-        <TextView
-            android:id="@+id/detail_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="소프트렌즈"
-            android:textColor="#0E0000"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_name"
-            app:layout_constraintVertical_bias="0.034" />
+                <TextView
+                    android:id="@+id/detail_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="40dp"
+                    android:text="악마 홀로리스"
+                    android:textColor="#0E0000"
+                    android:textSize="35sp"
+                    android:fontFamily="@font/hansansregular"
+                    app:layout_constraintBottom_toTopOf="@id/detail_type"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/d_day_text1" />
 
-        <TextView
-            android:id="@+id/detail_type2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="136dp"
-            android:layout_marginRight="136dp"
-            android:text="30"
-            android:textColor="#0E0000"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_name"
-            app:layout_constraintVertical_bias="0.034" />
+                <TextView
+                    android:id="@+id/detail_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="20dp"
+                    android:text="소프트렌즈"
+                    android:textColor="#0E0000"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toTopOf="@id/wave_text"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/imageView3"
+                    app:layout_constraintTop_toBottomOf="@id/detail_name" />
 
-        <TextView
-            android:id="@+id/detail_type3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:text="P"
-            android:textColor="#0E0000"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@id/detail_type2"
-            app:layout_constraintLeft_toRightOf="@id/detail_type2" />
 
-        <ImageView
-            android:id="@+id/nunu_ch"
-            android:layout_width="203dp"
-            android:layout_height="240dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_type"
-            app:srcCompat="@drawable/blue"
-            tools:ignore="NotSibling" />
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="22dp"
+                    app:layout_constraintLeft_toRightOf="@id/detail_type"
+                    app:layout_constraintRight_toLeftOf="@+id/detail_type2"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_name"
+                    app:srcCompat="@drawable/line" />
+
+                <TextView
+                    android:id="@+id/detail_type2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="30"
+                    android:textColor="#0E0000"
+                    android:textSize="25sp"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView3"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_name" />
+
+                <TextView
+                    android:id="@+id/detail_type3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="20dp"
+                    android:text="P"
+                    android:textColor="#0E0000"
+                    android:textSize="25sp"
+                    app:layout_constraintLeft_toRightOf="@id/detail_type2"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_name" />
+
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/detail_period_start"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginLeft="50dp"-->
+                <!--                    android:layout_marginTop="20dp"-->
+                <!--                    android:text="착용 주기 : "-->
+                <!--                    android:textColor="@color/dartblue"-->
+                <!--                    android:textSize="25sp"-->
+                <!--                    app:layout_constraintBottom_toTopOf="@id/wave_text"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/detail_type" />-->
+                <TextView
+                    android:id="@+id/wave_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="20dp"
+                    android:text="~"
+                    android:textColor="@color/dartblue"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toTopOf="@id/detail_info"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_type" />
+
+
+                <TextView
+                    android:id="@+id/detail_period_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="20dp"
+                    android:text="2020.12.12"
+                    android:textColor="@color/dartblue"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="@id/wave_text"
+                    app:layout_constraintLeft_toRightOf="@id/wave_text" />
+
+
+                <TextView
+                    android:id="@+id/detail_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="20dp"
+                    android:text="원데이 렌즈는 반드시 한번만 사용해주세요.\n일반형 1회용 렌즈는 보통 8시간의 착용시간을 권장합니다."
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/wave_text" />
+
+
+                <Button
+                    android:id="@+id/go_out"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/fab_close"
+                    android:backgroundTint="@color/dartblue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
