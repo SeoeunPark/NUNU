@@ -20,105 +20,90 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.422">
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="72dp"
+            android:layout_marginLeft="72dp"
+            android:layout_marginTop="144dp"
+            android:text="이름"
+            android:textColor="@color/black"
+            android:textSize="26sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="50dp"
-                android:text="이름"
-                android:textColor="@color/black"
-                android:textSize="26sp" />
+        <TextView
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="왼쪽 시력"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            app:layout_constraintStart_toStartOf="@+id/set_name"
+            app:layout_constraintTop_toBottomOf="@+id/set_name" />
 
-            <TextView
-                android:id="@+id/left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/set_name"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="20dp"
-                android:text="왼쪽 시력"
-                android:textColor="@color/black"
-                android:textSize="26sp" />
+        <EditText
+            android:id="@+id/set_left"
+            android:layout_width="146dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="ex) 0.8"
+            android:inputType="phone"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/left"
+            app:layout_constraintTop_toBottomOf="@+id/left" />
 
+        <EditText
+            android:id="@+id/set_name"
+            android:layout_width="428dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="ex) 누누"
+            android:inputType="text"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
-            <EditText
-                android:id="@+id/set_left"
-                android:layout_width="283dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/left"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="ex) 0.8"
-                android:inputType="phone"
-                android:textSize="20sp" />
+        <EditText
+            android:id="@+id/set_right"
+            android:layout_width="148dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="ex) 0.7"
+            android:inputType="phone"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/right"
+            app:layout_constraintTop_toBottomOf="@+id/right" />
 
-            <EditText
-                android:id="@+id/set_name"
-                android:layout_width="283dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/name"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="ex) 누누"
-                android:inputType="text"
-                android:textSize="20sp" />
+        <TextView
+            android:id="@+id/right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="오른쪽 시력"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            app:layout_constraintStart_toStartOf="@+id/set_left"
+            app:layout_constraintTop_toBottomOf="@+id/set_left" />
 
-            <EditText
-                android:id="@+id/set_right"
-                android:layout_width="283dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/right"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="ex) 0.7"
-                android:inputType="phone"
-                android:textSize="20sp" />
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="354dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="288dp"
+            android:background="@drawable/okbtn"
+            android:text="Ok"
+            android:textColor="#6FA5CD"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/set_right" />
 
-
-            <TextView
-                android:id="@+id/right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/set_left"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="20dp"
-                android:text="오른쪽 시력"
-                android:textColor="@color/black"
-                android:textSize="26sp" />
-
-            <Button
-                android:id="@+id/add_button"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/set_right"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginStart="357dp"
-                android:layout_marginLeft="357dp"
-                android:layout_marginTop="543dp"
-                android:layout_marginRight="313dp"
-                android:background="@drawable/button_background"
-                android:text="시작하기"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-
-        </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

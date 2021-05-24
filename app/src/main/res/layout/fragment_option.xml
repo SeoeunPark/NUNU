@@ -82,8 +82,8 @@
 
             <ImageView
                 android:id="@+id/imageView10"
-                android:layout_width="723dp"
-                android:layout_height="386dp"
+                android:layout_width="666dp"
+                android:layout_height="384dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/setdata"
@@ -91,8 +91,8 @@
 
             <ImageView
                 android:id="@+id/imageView11"
-                android:layout_width="237dp"
-                android:layout_height="145dp"
+                android:layout_width="245dp"
+                android:layout_height="126dp"
                 android:layout_marginTop="72dp"
                 app:layout_constraintEnd_toEndOf="@+id/changename"
                 app:layout_constraintHorizontal_bias="0.512"
@@ -104,14 +104,12 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="64dp"
                 android:text="이름 변경"
                 android:textSize="25sp"
                 app:layout_constraintBottom_toBottomOf="@+id/changename"
                 app:layout_constraintEnd_toEndOf="@+id/changename"
-                app:layout_constraintStart_toStartOf="@+id/changename"
-                app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+                app:layout_constraintStart_toStartOf="@+id/changename" />
 
             <ImageView
                 android:id="@+id/imageView12"

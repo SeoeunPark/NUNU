@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Calendar fragment2;
     Lens fragment3; // 홈 fragment
     User fragment4; // 유저 fragment
-    Option fragment5;
+    Option fragment5; //설정 fragment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

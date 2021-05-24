@@ -38,14 +38,6 @@ public class Option extends Fragment {
                 .allowMainThreadQueries()
                 .build();
 
-//        ImageView goSettingbtn = (ImageView)view.findViewById(R.id.goSetting);
-//        goSettingbtn.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Settings.ACTION_SETTINGS);
-//                startActivityForResult(intent, 0);
-//            }
-//        });
         ImageView changeName = (ImageView)view.findViewById(R.id.changename);
         changeName.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -74,8 +66,6 @@ public class Option extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         db.UserDao().deleteAll();
                         Toast.makeText(context,"데이터가 초기화 되었습니다.",Toast.LENGTH_SHORT).show();
-                      //  Intent intent = new Intent(getActivity(),InitInfo.class);
-                        //startActivity(intent);
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeAll).commitAllowingStateLoss();
                     }
                 });
