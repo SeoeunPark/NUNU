@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".ChangeSight">
 
     <RelativeLayout
@@ -65,7 +66,7 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="212dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginStart="50dp"
@@ -77,8 +78,8 @@
             android:layout_toLeftOf="@+id/done2"
             android:layout_toEndOf="@+id/exit2"
             android:layout_toRightOf="@+id/exit2"
-            android:textColor="@color/dartblue"
             android:text="시력 변경하기"
+            android:textColor="@color/dartblue"
             android:textSize="30sp"
             app:layout_constraintTop_toTopOf="parent" />
 

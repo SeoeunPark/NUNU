@@ -109,7 +109,7 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/lens_kind_text" />
 
-
+                    <!--
                     <ImageView
                         android:id="@+id/imageView"
                         android:layout_width="200dp"
@@ -122,6 +122,7 @@
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/lens_kind"
                         app:srcCompat="@drawable/camera" />
+                    -->
 
                     <Button
                         android:id="@+id/btnGallery"
@@ -130,9 +131,9 @@
                         android:text="Gallery"
                         android:visibility="gone"
                         app:layout_constraintBottom_toTopOf="@id/lens_name_text"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/imageView" />
-
+                        app:layout_constraintLeft_toLeftOf="parent" />
+                       <!-- app:layout_constraintTop_toBottomOf="@id/imageView"-->
+                    <!--
                     <Button
                         android:id="@+id/btnCamera"
                         android:layout_width="wrap_content"
@@ -142,6 +143,7 @@
                         app:layout_constraintBottom_toTopOf="@id/lens_name_text"
                         app:layout_constraintLeft_toRightOf="@id/btnGallery"
                         app:layout_constraintTop_toBottomOf="@id/imageView" />
+                    -->
 
                     <TextView
                         android:id="@+id/lens_name_text"

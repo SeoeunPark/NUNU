@@ -38,15 +38,7 @@ public class Option extends Fragment {
                 .allowMainThreadQueries()
                 .build();
 
-        ImageView goSettingbtn = (ImageView)view.findViewById(R.id.goSetting);
-        goSettingbtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Settings.ACTION_SETTINGS);
-                startActivityForResult(intent, 0);
-            }
-        });
-        Button changeName = (Button)view.findViewById(R.id.editname_btn);
+        ImageView changeName = (ImageView)view.findViewById(R.id.changename);
         changeName.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -54,7 +46,7 @@ public class Option extends Fragment {
             }
         });
 
-        Button changeSight = (Button)view.findViewById(R.id.editsight_btn);
+        ImageView changeSight = (ImageView)view.findViewById(R.id.changesight);
         changeSight.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -62,7 +54,7 @@ public class Option extends Fragment {
             }
         });
 
-        Button deleteAll = (Button)view.findViewById(R.id.deleteAll_btn);
+        ImageView deleteAll = (ImageView)view.findViewById(R.id.deletedata);
         deleteAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,8 +66,6 @@ public class Option extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         db.UserDao().deleteAll();
                         Toast.makeText(context,"데이터가 초기화 되었습니다.",Toast.LENGTH_SHORT).show();
-                      //  Intent intent = new Intent(getActivity(),InitInfo.class);
-                        //startActivity(intent);
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeAll).commitAllowingStateLoss();
                     }
                 });
@@ -85,7 +75,7 @@ public class Option extends Fragment {
             }
         });
 
-        Button updateAll = (Button)view.findViewById(R.id.updateAll_btn);
+        ImageView updateAll = (ImageView)view.findViewById(R.id.setdata);
         updateAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
