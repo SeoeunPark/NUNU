@@ -4,227 +4,212 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@drawable/background"
+    tools:context=".Option">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="402dp"
-        android:layout_height="64dp"
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="63dp"
-            android:layout_height="38dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="130dp"
-            android:layout_marginLeft="130dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="168dp"
-            android:layout_marginRight="168dp"
-            android:text="설정"
-            android:textSize="28sp"
-            app:layout_constraintTop_toTopOf="parent" />
 
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout3"
-        android:layout_width="405dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="68dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/relativeLayout">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="18dp"
-            android:text="사용자 설정"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/editname_btn"
-            android:layout_width="412dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="-2dp"
-            android:layout_marginLeft="-2dp"
-            android:layout_marginTop="55dp"
-            android:background="#FFFFFF"
-            android:text="이름 변경                                                           "
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/editsight_btn"
-            android:layout_width="412dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editname_btn"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginRight="0dp"
-            android:background="#FFFFFF"
-            android:text="시력 변경                                                           "
-            android:textSize="18sp" />
-
-        <View
-            android:id="@+id/view2"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#391D7EF4" />
+            android:layout_height="match_parent">
 
-    </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="417dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
+            <ImageView
+                android:id="@+id/changesight"
+                android:layout_width="315dp"
+                android:layout_height="315dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/changename"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/optionrect" />
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_below="@id/textView5"
-            android:layout_marginTop="-37dp"
-            android:layout_marginBottom="-22dp"
-            android:background="#161D7EF4" />
+            <ImageView
+                android:id="@+id/deletedata"
+                android:layout_width="315dp"
+                android:layout_height="315dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/setdata"
+                app:layout_constraintTop_toBottomOf="@+id/changesight"
+                app:srcCompat="@drawable/optionrect" />
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="19dp"
-            android:text="알림 설정"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/changename"
+                android:layout_width="315dp"
+                android:layout_height="315dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/changesight"
+                app:layout_constraintHorizontal_bias="0.39"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/optionrect" />
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="41dp"
-            android:layout_marginLeft="41dp"
-            android:layout_marginTop="63dp"
-            android:text="디데이 알림 설정"
-            android:textSize="18sp" />
+            <ImageView
+                android:id="@+id/setdata"
+                android:layout_width="315dp"
+                android:layout_height="315dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/deletedata"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/changename"
+                app:srcCompat="@drawable/optionrect" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="44dp"
-            android:layout_below="@+id/textView7"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="41dp"
-            android:layout_marginLeft="41dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="3dp"
-            android:text="누누는 렌즈 사용 기한 만료와 관련된 알림을 제공합니다.\n알림 허용 상태인지 확인해주세요."
-            android:textSize="14sp" />
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="723dp"
+                android:layout_height="386dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/setdata"
+                app:srcCompat="@drawable/optionrect2" />
 
-        <ImageView
-            android:id="@+id/goSetting"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="187dp"
-            android:layout_marginLeft="187dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginBottom="54dp"
-            android:layout_toEndOf="@+id/textView7"
-            android:layout_toRightOf="@+id/textView7"
-            app:srcCompat="@drawable/bell" />
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="237dp"
+                android:layout_height="145dp"
+                android:layout_marginTop="72dp"
+                app:layout_constraintEnd_toEndOf="@+id/changename"
+                app:layout_constraintHorizontal_bias="0.512"
+                app:layout_constraintStart_toStartOf="@+id/changename"
+                app:layout_constraintTop_toTopOf="@+id/changename"
+                app:srcCompat="@drawable/nameicon" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="16dp"
+                android:text="이름 변경"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="@+id/changename"
+                app:layout_constraintEnd_toEndOf="@+id/changename"
+                app:layout_constraintStart_toStartOf="@+id/changename"
+                app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
-    <RelativeLayout
-        android:layout_width="409dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="171dp"
+                android:layout_height="88dp"
+                android:layout_marginTop="104dp"
+                app:layout_constraintEnd_toEndOf="@+id/changesight"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintStart_toStartOf="@+id/changesight"
+                app:layout_constraintTop_toTopOf="@+id/changesight"
+                app:srcCompat="@drawable/eyeicon" />
 
-        <Button
-            android:id="@+id/deleteAll_btn"
-            android:layout_width="412dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/updateAll_btn"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginStart="-1dp"
-            android:layout_marginLeft="-1dp"
-            android:layout_marginTop="17dp"
-            android:background="#FFFFFF"
-            android:text="   데이터 삭제                                                           "
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="16dp"
+                android:text="데이터 설정"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="@+id/setdata"
+                app:layout_constraintEnd_toEndOf="@+id/setdata"
+                app:layout_constraintStart_toStartOf="@+id/setdata"
+                app:layout_constraintTop_toBottomOf="@+id/imageView13" />
 
-        <Button
-            android:id="@+id/updateAll_btn"
-            android:layout_width="412dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="30dp"
-            android:background="#FFFFFF"
-            android:text="   데이터 설정                                                           "
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="100dp"
+                android:text="알림 설정"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="@+id/imageView10"
+                app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="17dp"
-            android:layout_marginLeft="17dp"
-            android:layout_marginTop="8dp"
-            android:text="기타"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="100dp"
+                android:text="누누는 렌즈 사용 기한 만료와 관련된 알림을 제공합니다. \n알림 허용 상태인지 확인해주세요."
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="@+id/imageView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="16dp"
+                android:text="데이터 삭제"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="@+id/deletedata"
+                app:layout_constraintEnd_toEndOf="@+id/deletedata"
+                app:layout_constraintStart_toStartOf="@+id/deletedata"
+                app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="시력 변경"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="@+id/changesight"
+                app:layout_constraintEnd_toEndOf="@+id/changesight"
+                app:layout_constraintHorizontal_bias="0.525"
+                app:layout_constraintStart_toStartOf="@+id/changesight"
+                app:layout_constraintTop_toBottomOf="@+id/imageView12"
+                app:layout_constraintVertical_bias="0.342" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="128dp"
+                android:layout_height="146dp"
+                android:layout_marginTop="56dp"
+                app:layout_constraintEnd_toEndOf="@+id/setdata"
+                app:layout_constraintHorizontal_bias="0.518"
+                app:layout_constraintStart_toStartOf="@+id/setdata"
+                app:layout_constraintTop_toTopOf="@+id/setdata"
+                app:srcCompat="@drawable/dataset" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="109dp"
+                android:layout_height="142dp"
+                android:layout_marginTop="56dp"
+                app:layout_constraintEnd_toEndOf="@+id/deletedata"
+                app:layout_constraintStart_toStartOf="@+id/deletedata"
+                app:layout_constraintTop_toTopOf="@+id/deletedata"
+                app:srcCompat="@drawable/datadelete" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -152,6 +152,7 @@ public class Detail extends AppCompatActivity {
         });
     }
 
+
     public void showNoti(){
         builder = null;
         manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

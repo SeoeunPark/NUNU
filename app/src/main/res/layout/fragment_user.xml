@@ -1,204 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/setting"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".User">
 
-    <!--
-    user 페이지는 3 부분으로 나눠져있음
-    1. 사용자 이름과 사용자에게 인사
-    2. 사용자의 시력 정보
-    3. 사용자의 시력 상태 변화를 보여주는 그래프
-    -->
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="98dp"
-        android:layout_marginTop="135dp"
-        android:gravity="center"
-        android:stretchColumns="*">
 
-        <TableRow
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="28sp" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/round_background"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+                app:layout_constraintDimensionRatio="H,5:3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.422">
 
-            <TextView
-                android:layout_width="34dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="좌안"
-                android:textSize="28sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="우안"
-                android:textSize="28sp" />
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="28sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/count_lens"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="28sp" />
-
-            <TextView
-                android:id="@+id/leftSight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="0.0"
-                android:textSize="28sp" />
-
-            <TextView
-                android:id="@+id/rightSight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="0.0"
-                android:textSize="28sp" />
-
-            <TextView
-                android:id="@+id/count_lens2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="28sp" />
-
-        </TableRow>
-
-    </TableLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginTop="15dp">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/profile"
-            android:layout_width="78dp"
-            android:layout_height="77dp"
-            android:layout_alignTop="@+id/username"
-            android:layout_alignBottom="@+id/username"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="-40dp"
-            android:scaleType="fitXY"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.578"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/profile" />
-
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="138dp"
-            android:layout_marginLeft="138dp"
-            android:layout_marginTop="21dp"
-            android:text="OOO님"
-            android:textColor="#004182"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/greeting"
-            android:layout_width="256dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/username"
-            android:layout_alignStart="@+id/username"
-            android:layout_alignLeft="@+id/username"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="17dp"
-            android:layout_marginRight="17dp"
-            android:layout_marginBottom="10dp"
-            android:text="안녕하세요"
-            android:textColor="#004182"
-            android:textSize="20sp" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="346dp"
-        android:layout_marginTop="230dp"
-        android:orientation="vertical">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="시력 상태 변화"
-                    android:textColor="#004182"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <com.github.mikephil.charting.charts.LineChart
-                    android:id="@+id/sightchart"
-                    android:layout_width="350dp"
-                    android:layout_height="229dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="40dp"
+                    android:src="@drawable/blueline"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="H,2:3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/recent"
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="좌안"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView8"
+                    app:layout_constraintHorizontal_bias="0.504"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="누누"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toTopOf="@+id/imageView8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="우안"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView8"
+                    app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+                <TextView
+                    android:id="@+id/leftSight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="0.0"
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView8"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+                <TextView
+                    android:id="@+id/rightSight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="0.0"
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imageView8"
+                    app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/round_background"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H,5:3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/linearLayout2">
+                </LinearLayout>
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="0dp"
 
-</FrameLayout>
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="시력 상태 변화"
+                        android:textColor="#004182"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/sightchart"
+                        android:layout_width="588dp"
+                        android:layout_height="371dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp" />
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,8 +33,6 @@ public class User extends Fragment {
     private LineChart lineChart;
     Option option;
     TextView userTextView;
-    TextView greeting;
-    TextView recentTextView;
     TextView leftSightTextView;
     TextView rightSightTextView;
     InitSetting initSetting;
@@ -66,17 +64,6 @@ public class User extends Fragment {
         Calendar cal = Calendar.getInstance();
         String h = sdf.format(cal.getTime());
         int hour = Integer.parseInt(h);
-        greeting = rootView.findViewById(R.id.greeting);
-        if((hour>=0 && hour<=4 )||hour>=20){
-            String evening = "눈 건강을 위해\n렌즈를 빼고 취침하세요!";
-            greeting.setText(evening);
-        }else if(hour>=5 && hour<=11){
-            String morning = "좋은 아침입니다~";
-            greeting.setText(morning);
-        }else{
-            String lunch = "나른한 오후입니다.\n눈의 피로 풀어주세요!";
-            greeting.setText(lunch);
-        }
 
         Context context = getContext();
         final AppDatabase db = Room.databaseBuilder(context,AppDatabase.class,"userinfo-db")
@@ -86,7 +73,7 @@ public class User extends Fragment {
 
         userTextView = rootView.findViewById(R.id.username);
         String name = db.UserDao().getName();
-        userTextView.setText(name+"님");
+        userTextView.setText(name);
 
 
         leftSightTextView = rootView.findViewById(R.id.leftSight);
@@ -97,9 +84,6 @@ public class User extends Fragment {
         String rightSight = db.UserDao().getRight();
         rightSightTextView.setText(rightSight);
 
-        recentTextView = rootView.findViewById(R.id.recent);
-        String recent = db.UserDao().getDate();
-        recentTextView.setText("                                                                       최근 업데이트 : "+recent);
     }
 
     private void initGraph(ViewGroup rootView){
