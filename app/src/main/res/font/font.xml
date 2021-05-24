@@ -4,27 +4,22 @@
     <font
         android:font="@font/hansansbold"
         android:fontStyle="normal"
-        app:font="@font/hansansbold"
         app:fontStyle="normal" />
     <font
         android:font="@font/hansanslight"
         android:fontStyle="normal"
-        app:font="@font/hansanslight"
         app:fontStyle="normal" />
     <font
         android:font="@font/hansansmedium"
         android:fontStyle="normal"
-        app:font="@font/hansansmedium"
         app:fontStyle="normal" />
     <font
         android:font="@font/hansansregular"
         android:fontStyle="normal"
-        app:font="@font/hansansregular"
         app:fontStyle="normal" />
     <font
         android:font="@font/hansansthin"
         android:fontStyle="normal"
-        app:font="@font/hansansthin"
         app:fontStyle="normal" />
 
 </font-family>

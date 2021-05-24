@@ -64,6 +64,7 @@ public class Lens extends Fragment implements View.OnClickListener {
     public static final int EDIT_NOTE_REQUEST = 2;
     public static final int ED_NOTE_REQUEST = 3;
     private WordViewModel mWordViewModel;
+    SwipeController swipeController = null;
 
     public void setListData(List<Note> dataItemList) {
         //if data changed, set new list to adapter of recyclerview
@@ -113,65 +114,109 @@ public class Lens extends Fragment implements View.OnClickListener {
             }
         });
 
-        //스와이프해서 삭제
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
-                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        swipeController = new SwipeController (new SwipeControllerActions () {
             @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                return false;
+            public void onRightClicked (int position) {
+                mWordViewModel.delete(adapter.getNoteAt(position));
+                Toast.makeText(getActivity(), "렌즈가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
             }
-
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
-                switch (direction) {
-                    case ItemTouchHelper.LEFT:
-                        mWordViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
-                        Toast.makeText(getActivity(), "렌즈가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
-                        break;
-                    case ItemTouchHelper.RIGHT:
-                        if (adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_period() == 1) {
+            public void onLeftClicked(int position) {
+                if (adapter.getNoteAt(position).getLens_period() == 1) {
                             Intent intent = new Intent(getActivity(), EditOneday.class);
-                            intent.putExtra("id", adapter.getNoteAt(viewHolder.getAdapterPosition()).get_id());
-                            intent.putExtra("name", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_name()); //name 이란 이름으로 one_name에 들어간 text 저장
-                            intent.putExtra("type", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_type());
-                            intent.putExtra("cnt", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_cnt());
-                            intent.putExtra("period", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_period());
-                            intent.putExtra("cl", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_color());
-                            intent.putExtra("start", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_start());
-                            intent.putExtra("end", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_end());
+                            intent.putExtra("id", adapter.getNoteAt(position).get_id());
+                            intent.putExtra("name", adapter.getNoteAt(position).getLens_name()); //name 이란 이름으로 one_name에 들어간 text 저장
+                            intent.putExtra("type", adapter.getNoteAt(position).getLens_type());
+                            intent.putExtra("cnt", adapter.getNoteAt(position).getLens_cnt());
+                            intent.putExtra("period", adapter.getNoteAt(position).getLens_period());
+                            intent.putExtra("cl", adapter.getNoteAt(position).getLens_color());
+                            intent.putExtra("start", adapter.getNoteAt(position).getLens_start());
+                            intent.putExtra("end", adapter.getNoteAt(position).getLens_end());
                             startActivityForResult(intent, ED_NOTE_REQUEST);
-                        } else if (adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_period() == 2) {
+                        } else if (adapter.getNoteAt(position).getLens_period() == 2) {
                             Intent intent = new Intent(getActivity(), EditMonthly.class);
-                            intent.putExtra("id", adapter.getNoteAt(viewHolder.getAdapterPosition()).get_id());
-                            intent.putExtra("name", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_name()); //name 이란 이름으로 one_name에 들어간 text 저장
-                            intent.putExtra("type", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_type());
-                            intent.putExtra("cnt", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_cnt());
-                            intent.putExtra("period", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_period());
-                            intent.putExtra("cl", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_color());
-                            intent.putExtra("start", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_start());
-                            intent.putExtra("end", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_end());
+                            intent.putExtra("id", adapter.getNoteAt(position).get_id());
+                            intent.putExtra("name", adapter.getNoteAt(position).getLens_name()); //name 이란 이름으로 one_name에 들어간 text 저장
+                            intent.putExtra("type", adapter.getNoteAt(position).getLens_type());
+                            intent.putExtra("cnt", adapter.getNoteAt(position).getLens_cnt());
+                            intent.putExtra("period", adapter.getNoteAt(position).getLens_period());
+                            intent.putExtra("cl", adapter.getNoteAt(position).getLens_color());
+                            intent.putExtra("start", adapter.getNoteAt(position).getLens_start());
+                            intent.putExtra("end", adapter.getNoteAt(position).getLens_end());
                             startActivityForResult(intent, ED_NOTE_REQUEST);
                         }
-                        break;
-                }
             }
+        });
+        ItemTouchHelper itemTouchhelper = new ItemTouchHelper (swipeController);
+        itemTouchhelper. attachToRecyclerView (recyclerView);
 
+        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
-            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-                new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(getActivity(), R.color.red))
-                        .addSwipeLeftActionIcon(R.drawable.ic_baseline_delete_24)
-                        .addSwipeRightBackgroundColor(ContextCompat.getColor(getActivity(), R.color.green))
-                        .addSwipeRightActionIcon(R.drawable.ic_baseline_edit_24)
-                        .create()
-                        .decorate();
-
-                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+                swipeController.onDraw(c);
             }
-        }
+        });
 
-        ).attachToRecyclerView(recyclerView);
+        //스와이프해서 삭제
+//        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
+//                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+//            @Override
+//            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+//                return false;
+//            }
+//
+//            @Override
+//            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+//
+//                switch (direction) {
+//                    case ItemTouchHelper.LEFT:
+//                        mWordViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
+//                        Toast.makeText(getActivity(), "렌즈가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case ItemTouchHelper.RIGHT:
+//                        if (adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_period() == 1) {
+//                            Intent intent = new Intent(getActivity(), EditOneday.class);
+//                            intent.putExtra("id", adapter.getNoteAt(viewHolder.getAdapterPosition()).get_id());
+//                            intent.putExtra("name", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_name()); //name 이란 이름으로 one_name에 들어간 text 저장
+//                            intent.putExtra("type", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_type());
+//                            intent.putExtra("cnt", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_cnt());
+//                            intent.putExtra("period", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_period());
+//                            intent.putExtra("cl", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_color());
+//                            intent.putExtra("start", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_start());
+//                            intent.putExtra("end", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_end());
+//                            startActivityForResult(intent, ED_NOTE_REQUEST);
+//                        } else if (adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_period() == 2) {
+//                            Intent intent = new Intent(getActivity(), EditMonthly.class);
+//                            intent.putExtra("id", adapter.getNoteAt(viewHolder.getAdapterPosition()).get_id());
+//                            intent.putExtra("name", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_name()); //name 이란 이름으로 one_name에 들어간 text 저장
+//                            intent.putExtra("type", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_type());
+//                            intent.putExtra("cnt", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_cnt());
+//                            intent.putExtra("period", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_period());
+//                            intent.putExtra("cl", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_color());
+//                            intent.putExtra("start", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_start());
+//                            intent.putExtra("end", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_end());
+//                            startActivityForResult(intent, ED_NOTE_REQUEST);
+//                        }
+//                        break;
+//                }
+//            }
+//
+//            @Override
+//            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+//                new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+//                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(getActivity(), R.color.red))
+//                        .addSwipeLeftActionIcon(R.drawable.ic_baseline_delete_24)
+//                        .addSwipeRightBackgroundColor(ContextCompat.getColor(getActivity(), R.color.green))
+//                        .addSwipeRightActionIcon(R.drawable.ic_baseline_edit_24)
+//                        .create()
+//                        .decorate();
+//
+//                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+//            }
+//        }
+//
+//        ).attachToRecyclerView(recyclerView);
+
+
 
         //클릭했을 때의 이벤트
 

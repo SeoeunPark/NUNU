@@ -144,11 +144,8 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/lens_select_button"
                         android:text="Oneday"
-                        android:autoSizeTextType="uniform"
-                        android:padding="6dp"
                         android:textAlignment="center"
-                        android:textAllCaps="false"
-                        android:includeFontPadding="false"/>
+                        android:textSize="22sp" />
 
                     <Button
                         android:id="@+id/monthly_select_btn"
@@ -158,29 +155,26 @@
                         android:layout_marginLeft="5dp"
                         android:layout_height="match_parent"
                         android:text="Monthly"
-                        android:textAllCaps="false"
-                        android:autoSizeTextType="uniform"
-                        android:padding="6dp"
                         android:textAlignment="center"
                         android:textColor="#7C889A"
-                        android:background="@drawable/lens_unselect_button"
-                        android:includeFontPadding="false"/>
+                        android:textSize="22sp"
+                        android:background="@drawable/lens_unselect_button" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <Button
                     android:id="@+id/add_lens_btn"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="3"
-                    android:background="@drawable/lens_plus_button"
-                    android:text="+"
+                    android:padding="25dp"
                     android:autoSizeTextType="uniform"
-                    android:textAlignment="center"
-                    />
+                    android:background="@drawable/lens_plus_button"
+                    android:drawableBottom="@drawable/plusbutton"
+                    android:textAlignment="center" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 

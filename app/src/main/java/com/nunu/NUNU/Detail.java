@@ -65,7 +65,7 @@ public class Detail extends AppCompatActivity {
         dtype = (TextView) findViewById(R.id.detail_type); //소프트/하드/미용
         dcnt = (TextView) findViewById(R.id.detail_type2);
         dtype_om = (TextView) findViewById(R.id.type_om);
-        //dperiod_s = (TextView) findViewById(R.id.detail_period_start);
+        dperiod_s = (TextView) findViewById(R.id.detail_period_start);
         dperiod_e = (TextView) findViewById(R.id.detail_period_end);
         dinfo = (TextView) findViewById(R.id.detail_info);
         dimage = (ImageView) findViewById(R.id.nunu_ch); //누누 캐릭터
@@ -108,11 +108,11 @@ public class Detail extends AppCompatActivity {
 
         //원데이인지 / 먼슬리인지
         if (idtype_om.equals("1")) {
-            //dperiod_s.setText("");
+            dperiod_s.setText("");
             idtype_om = "원데이 렌즈";
             dinfo.setText("원데이 렌즈는 반드시 한번만 사용해주세요.\n일반형 1회용 렌즈는 보통 8시간의 착용시간을 권장합니다.\n실리콘 하이드로겔 소재의 렌즈는 12시간에서 14시까지도\n 착용이 가능합니다.");
         } else {
-            //dperiod_s.setText("착용 주기: "+idperiod_s);
+            dperiod_s.setText("착용 주기: "+idperiod_s);
             idtype_om = "기간 렌즈";
             dinfo.setText("기간 렌즈는 한번 개봉하고 사용기한이 지나면\n 반드시 폐기를 해주어야 합니다.\n 개봉하지 않은 렌즈도 5년이 지나면 버려야 합니다. ");
         }

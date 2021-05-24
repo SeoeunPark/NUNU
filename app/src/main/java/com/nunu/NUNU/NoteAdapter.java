@@ -97,8 +97,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {/
         private TextView dday;
 
 
-
-
         public ViewHolder(View itemView) {
             super(itemView);
             layout1 = itemView.findViewById(R.id.layout1);
@@ -118,8 +116,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {/
                     }
                 }
             });
-
-
         }
 
         //화면에 보여지게 넣는 함수
