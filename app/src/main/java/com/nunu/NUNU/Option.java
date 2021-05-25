@@ -42,7 +42,9 @@ public class Option extends Fragment {
         changeName.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeName).commitAllowingStateLoss();
+                //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeName).commitAllowingStateLoss();
+                        Intent intent = new Intent(getActivity(), modifyname.class);
+                        startActivity(intent);
             }
         });
 
@@ -50,7 +52,9 @@ public class Option extends Fragment {
         changeSight.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeSight).commitAllowingStateLoss();
+                //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeSight).commitAllowingStateLoss();
+                Intent intent = new Intent(getActivity(), modifysight.class);
+                startActivity(intent);
             }
         });
 

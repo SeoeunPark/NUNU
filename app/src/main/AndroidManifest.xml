@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.nunu.NUNU">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LensInsert"></activity>
+        <activity android:name=".modifysight"></activity>
+        <activity android:name=".modifyname"></activity>
+        <activity android:name=".LensInsert" />
         <activity
             android:name=".EditMonthly"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -44,8 +50,5 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
     </application>
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>
