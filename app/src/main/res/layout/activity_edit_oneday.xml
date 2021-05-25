@@ -43,7 +43,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/round_background"
+            android:background="@drawable/round_background4"
             android:orientation="horizontal">
             <Button
                 android:id="@+id/eto_main"
