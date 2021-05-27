@@ -17,24 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!--        //뒤에 파란색-->
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:weightSum="1"-->
-        <!--            android:orientation="vertical">-->
-        <!--            <LinearLayout-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_weight="0.5"-->
-        <!--                android:layout_height="match_parent"-->
-        <!--                android:background="#D265B0E2"-->
-        <!--                />-->
-        <!--            <LinearLayout-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="match_parent"-->
-        <!--                />-->
-        <!--        </LinearLayout>-->
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -43,7 +25,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/round_background4"
+            android:background="@drawable/round_background_50"
             android:orientation="horizontal">
 
             <Button
@@ -80,8 +62,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="원데이 렌즈"
-                        android:textColor="#000000"
+                        android:textColor="#2D2D2E"
                         android:textSize="40sp"
+                        android:fontFamily="@font/nanumsquare_b"
                         app:layout_constraintBottom_toTopOf="@id/one_name_text"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -91,8 +74,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="렌즈 이름"
-                        android:textColor="@color/dartblue"
+                        android:textColor="#383A3C"
                         android:textSize="30sp"
+                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/Oneday_name"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/one_title_text" />
@@ -104,7 +88,8 @@
                         android:hint="ex) 악마 홀로리스 원데이 "
                         android:inputType="text"
                         android:textColor="#29367A"
-                        android:textSize="23sp"
+                        android:textSize="25sp"
+                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/one_type_text"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/one_name_text" />
@@ -115,8 +100,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="렌즈 유형"
-                        android:textColor="@color/dartblue"
+                        android:textColor="#383A3C"
                         android:textSize="30sp"
+                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/Oneday_type"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/Oneday_name" />
@@ -132,7 +118,8 @@
                         android:focusable="false"
                         android:hint="ex)소프트렌즈"
                         android:textColor="#29367A"
-                        android:textSize="23sp"
+                        android:textSize="25sp"
+                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/one_cnt_text"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/one_type_text" />
@@ -143,8 +130,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="보유 개수"
-                        android:textColor="@color/dartblue"
+                        android:textColor="#383A3C"
                         android:textSize="30sp"
+                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/Oneday_cnt"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/Oneday_type" />
@@ -158,7 +146,8 @@
                         android:hint="ex) 30 "
                         android:inputType="phone"
                         android:textColor="#29367A"
-                        android:textSize="23sp"
+                        android:textSize="25sp"
+                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/one_period_text"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/one_cnt_text" />
@@ -170,8 +159,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="유효기간"
-                        android:textColor="@color/dartblue"
+                        android:textColor="#383A3C"
                         android:textSize="30sp"
+                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/Oneday_period"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/Oneday_cnt" />
@@ -187,7 +177,8 @@
                         android:focusable="false"
                         android:hint="yyyy/mm/dd"
                         android:textColor="#29367A"
-                        android:textSize="23sp"
+                        android:textSize="25sp"
+                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/one_color_text"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/one_period_text" />
@@ -199,8 +190,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="색상"
-                        android:textColor="@color/dartblue"
+                        android:textColor="#383A3C"
                         android:textSize="30sp"
+                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/Oneday_color"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/Oneday_period" />
@@ -224,8 +216,9 @@
                         android:layout_marginBottom="16dp"
                         android:background="@drawable/whitebutton"
                         android:text="저장"
-                        android:textColor="@color/dartblue"
+                        android:textColor="#383A3C"
                         android:textSize="30sp"
+                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent" />
 

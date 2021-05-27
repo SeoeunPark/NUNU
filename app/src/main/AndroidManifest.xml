@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.nunu.NUNU">
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,9 +19,17 @@
         <activity
             android:name=".EditOneday"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".Detail"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+<!--        <activity-->
+<!--            android:name=".Detail"-->
+<!--            android:theme="@style/Theme.AppCompat.Dialog"-->
+<!--            android:screenOrientation="portrait"-->
+<!--            />-->
+                <activity
+                    android:name=".Detail"
+                    android:theme="@style/MyPopupMenu"
+                    android:screenOrientation="portrait"
+                    />
         <activity
             android:name=".InitInfo"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -50,5 +54,8 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
     </application>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

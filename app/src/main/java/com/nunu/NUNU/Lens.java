@@ -88,16 +88,16 @@ public class Lens extends Fragment implements View.OnClickListener {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_lens, container, false);
         emptyImage = (LottieAnimationView) rootView.findViewById(R.id.emptyimage);
         emptyText = (TextView) rootView.findViewById(R.id.emptytext);
-//        fab1t = (TextView) rootView.findViewById(R.id.fab1text);
-//        fab2t = (TextView) rootView.findViewById(R.id.fab2text);
         monthly_btn = (Button)rootView.findViewById(R.id.monthly_select_btn);
         oneday_btn = (Button)rootView.findViewById(R.id.oneday_select_btn);
         add_lens_btn = (Button)rootView.findViewById(R.id.add_lens_btn);
         super.onCreate(savedInstanceState);
+
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
         final NoteAdapter adapter = new NoteAdapter(getActivity());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         setHasOptionsMenu(true); //전체삭제할수 있는 상단 바 보여주기
         mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
         mWordViewModel.getAllWords().observe(getViewLifecycleOwner(), new Observer<List<Note>>() {
@@ -118,7 +118,7 @@ public class Lens extends Fragment implements View.OnClickListener {
             @Override
             public void onRightClicked (int position) {
                 mWordViewModel.delete(adapter.getNoteAt(position));
-                Toast.makeText(getActivity(), "렌즈가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "렌즈가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
             }
             public void onLeftClicked(int position) {
                 if (adapter.getNoteAt(position).getLens_period() == 1) {
@@ -156,68 +156,6 @@ public class Lens extends Fragment implements View.OnClickListener {
             }
         });
 
-        //스와이프해서 삭제
-//        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
-//                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-//            @Override
-//            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-//                return false;
-//            }
-//
-//            @Override
-//            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-//
-//                switch (direction) {
-//                    case ItemTouchHelper.LEFT:
-//                        mWordViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
-//                        Toast.makeText(getActivity(), "렌즈가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
-//                        break;
-//                    case ItemTouchHelper.RIGHT:
-//                        if (adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_period() == 1) {
-//                            Intent intent = new Intent(getActivity(), EditOneday.class);
-//                            intent.putExtra("id", adapter.getNoteAt(viewHolder.getAdapterPosition()).get_id());
-//                            intent.putExtra("name", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_name()); //name 이란 이름으로 one_name에 들어간 text 저장
-//                            intent.putExtra("type", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_type());
-//                            intent.putExtra("cnt", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_cnt());
-//                            intent.putExtra("period", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_period());
-//                            intent.putExtra("cl", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_color());
-//                            intent.putExtra("start", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_start());
-//                            intent.putExtra("end", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_end());
-//                            startActivityForResult(intent, ED_NOTE_REQUEST);
-//                        } else if (adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_period() == 2) {
-//                            Intent intent = new Intent(getActivity(), EditMonthly.class);
-//                            intent.putExtra("id", adapter.getNoteAt(viewHolder.getAdapterPosition()).get_id());
-//                            intent.putExtra("name", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_name()); //name 이란 이름으로 one_name에 들어간 text 저장
-//                            intent.putExtra("type", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_type());
-//                            intent.putExtra("cnt", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_cnt());
-//                            intent.putExtra("period", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_period());
-//                            intent.putExtra("cl", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_color());
-//                            intent.putExtra("start", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_start());
-//                            intent.putExtra("end", adapter.getNoteAt(viewHolder.getAdapterPosition()).getLens_end());
-//                            startActivityForResult(intent, ED_NOTE_REQUEST);
-//                        }
-//                        break;
-//                }
-//            }
-//
-//            @Override
-//            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-//                new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-//                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(getActivity(), R.color.red))
-//                        .addSwipeLeftActionIcon(R.drawable.ic_baseline_delete_24)
-//                        .addSwipeRightBackgroundColor(ContextCompat.getColor(getActivity(), R.color.green))
-//                        .addSwipeRightActionIcon(R.drawable.ic_baseline_edit_24)
-//                        .create()
-//                        .decorate();
-//
-//                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-//            }
-//        }
-//
-//        ).attachToRecyclerView(recyclerView);
-
-
-
         //클릭했을 때의 이벤트
 
         adapter.setOnItemClickListener(new NoteAdapter.OnItemClickListener() {
@@ -233,6 +171,7 @@ public class Lens extends Fragment implements View.OnClickListener {
                 intent.putExtra("start", note.getLens_start());
                 intent.putExtra("end", note.getLens_end());
                 startActivityForResult(intent, EDIT_NOTE_REQUEST);
+                getActivity().overridePendingTransition(R.anim.sliding_up, R.anim.stay);
             }
         });
         //이건 floating 버튼 애니메이션
@@ -308,19 +247,6 @@ public class Lens extends Fragment implements View.OnClickListener {
         }
     }
 
-//    private void initFL(ViewGroup rootView) {
-//        fab_open = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_open);
-//        fab_close = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.fab_close);
-//
-//        fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
-//        fab1 = (FloatingActionButton) rootView.findViewById(R.id.fab1);
-//        fab2 = (FloatingActionButton) rootView.findViewById(R.id.fab2);
-//
-//        fab.setOnClickListener(this);
-//        fab1.setOnClickListener(this);
-//        fab2.setOnClickListener(this);
-//    }
-
     //floating 버튼 눌르면 뜨게 작업
 
     @Override
@@ -334,54 +260,6 @@ public class Lens extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
 
     }
-
-//    @Override
-//    public void onClick(View v) {
-//        int id = v.getId();
-//        switch (id) {
-//            case R.id.fab:
-//                //anim();
-//                Intent intent = new Intent(v.getContext(), LensInsert.class); //이거 진짜 중요
-//                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
-//                break;
-//                /*
-//            case R.id.fab1:
-//                Intent intent = new Intent(v.getContext(), Oneday.class); //이거 진짜 중요
-//                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
-//                anim();
-//                break;
-//            case R.id.fab2:
-//                Intent mintent = new Intent(v.getContext(), Monthly.class); //이거 진짜 중요
-//                startActivityForResult(mintent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
-//                anim();
-//                break;
-//
-//                 */
-//        }
-//    }
-        /*
-        public void anim() {
-            if (isFabOpen) {
-                fab.setImageResource(R.drawable.fab_plus);
-                fab1.startAnimation(fab_close);
-                fab2.startAnimation(fab_close);
-                fab1t.startAnimation(fab_close);
-                fab2t.startAnimation(fab_close);
-                fab1.setClickable(false);
-                fab2.setClickable(false);
-                isFabOpen = false;
-            } else {
-                fab.setImageResource(R.drawable.fab_close);
-                fab1.startAnimation(fab_open);
-                fab2.startAnimation(fab_open);
-                fab1t.startAnimation(fab_open);
-                fab2t.startAnimation(fab_open);
-                fab1.setClickable(true);
-                fab2.setClickable(true);
-                isFabOpen = true;
-            }
-
-         */
 
         public interface OnListFragmentInteractionListener {
             //onClick items of list
