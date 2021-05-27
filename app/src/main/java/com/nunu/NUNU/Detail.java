@@ -7,10 +7,14 @@ import androidx.core.app.NotificationCompat;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -55,9 +59,21 @@ public class Detail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
 
-
-
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        WindowManager.LayoutParams  layoutParams = new WindowManager.LayoutParams();
+        layoutParams.flags  = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        layoutParams.dimAmount  = 0.8f;
+        getWindow().setAttributes(layoutParams);
         setContentView(R.layout.activity_detail);
+
+
+        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        int width = (int) (display.getWidth()*0.8);
+        int height = (int) (display.getHeight()*0.65);
+        getWindow().getAttributes().width = width;
+        getWindow().getAttributes().height = height;
+        this.setFinishOnTouchOutside(false);
+
         cancel = (Button) findViewById(R.id.go_out);
         dminus =(TextView) findViewById(R.id.d_day_text2); // - 표시
         dday = (TextView) findViewById(R.id.d_day_text3); //d-day 남은 기간 text
@@ -108,10 +124,10 @@ public class Detail extends AppCompatActivity {
 
         //원데이인지 / 먼슬리인지
         if (idtype_om.equals("1")) {
-            dperiod_s.setText("");
             idtype_om = "원데이 렌즈";
-            dinfo.setText("원데이 렌즈는 반드시 한번만 사용해주세요.\n일반형 1회용 렌즈는 보통 8시간의 착용시간을 권장합니다.\n실리콘 하이드로겔 소재의 렌즈는 12시간에서 14시까지도\n 착용이 가능합니다.");
+            dinfo.setText("원데이 렌즈는 반드시 한번만 사용해주세요.\n일반형 1회용 렌즈는 보통 8시간의 착용시간을\n권장합니다.");
         } else {
+            dperiod_s.setVisibility(View.VISIBLE);
             dperiod_s.setText("착용 주기: "+idperiod_s);
             idtype_om = "기간 렌즈";
             dinfo.setText("기간 렌즈는 한번 개봉하고 사용기한이 지나면\n 반드시 폐기를 해주어야 합니다.\n 개봉하지 않은 렌즈도 5년이 지나면 버려야 합니다. ");
@@ -145,11 +161,17 @@ public class Detail extends AppCompatActivity {
         dtype_om.setText(idtype_om);
         dperiod_e.setText(idperiod_e);
 
+
+
+
         cancel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.stay, R.anim.sliding_down);
             }
         });
+
+
     }
 
 

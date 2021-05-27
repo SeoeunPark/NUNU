@@ -13,86 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--            android:id="@+id/fab"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:layout_alignParentBottom="true"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:layout_marginBottom="20dp"-->
-<!--            app:srcCompat="@drawable/fab_plus"-->
-<!--            app:backgroundTint="#434A54"-->
-<!--            app:fabSize="auto"-->
-<!--            app:maxImageSize="40dp"-->
-<!--            android:layout_marginEnd="10dp"-->
-<!--            android:layout_alignParentEnd="true" />-->
-
-<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--            android:id="@+id/fab1"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_above="@id/fab"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:layout_marginBottom="5dp"-->
-<!--            app:srcCompat="@drawable/today"-->
-<!--            android:visibility="invisible"-->
-<!--            app:backgroundTint="#ffffff"-->
-<!--            app:elevation="6dp"-->
-<!--            app:maxImageSize="36dp"-->
-<!--            app:pressedTranslationZ="12dp"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_marginEnd="10dp" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/fab1text"-->
-<!--            android:layout_alignParentBottom="true"-->
-<!--            android:layout_marginBottom="95dp"-->
-<!--            android:layout_width="120dp"-->
-<!--            android:textAlignment="center"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="원데이 렌즈"-->
-<!--            android:background="@drawable/round_background2"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:visibility="invisible"-->
-<!--            android:textSize="20sp"-->
-<!--            android:layout_toLeftOf="@id/fab1"-->
-<!--            android:gravity="center_horizontal"-->
-<!--            android:layout_toStartOf="@id/fab1" />-->
-
-<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--            android:id="@+id/fab2"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:layout_above="@id/fab1"-->
-<!--            app:srcCompat="@drawable/month"-->
-<!--            android:visibility="invisible"-->
-<!--            app:backgroundTint="#ffffff"-->
-<!--            app:elevation="6dp"-->
-<!--            app:maxImageSize="36dp"-->
-<!--            android:layout_marginBottom="5dp"-->
-<!--            app:pressedTranslationZ="12dp"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_marginEnd="10dp" />-->
-<!--        <TextView-->
-<!--            android:id="@+id/fab2text"-->
-<!--            android:layout_alignParentBottom="true"-->
-<!--            android:layout_marginBottom="155dp"-->
-<!--            android:layout_width="110dp"-->
-<!--            android:textAlignment="center"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@drawable/round_background2"-->
-<!--            android:textSize="20sp"-->
-<!--            android:text="기간 렌즈"-->
-<!--            android:visibility="invisible"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:layout_toLeftOf="@id/fab2"-->
-<!--            android:gravity="center_horizontal"/>-->
-
-
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/emptyimage"
             android:layout_width="300dp"
@@ -112,6 +32,7 @@
             android:layout_centerHorizontal="true"
             android:visibility="invisible"
             android:text="아직 렌즈정보가 없어요."
+            android:fontFamily="@font/nanumsquare_b"
             android:textSize="20sp" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -123,20 +44,20 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="8.5"
+                android:layout_weight="8.3"
                 android:orientation="vertical"
                 android:weightSum="10">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="7"
+                    android:layout_weight="7.5"
                     android:weightSum="10"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/oneday_select_btn"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="5dp"
                         android:layout_weight="2"
@@ -145,6 +66,7 @@
                         android:background="@drawable/lens_select_button"
                         android:text="Oneday"
                         android:textAlignment="center"
+                        android:fontFamily="@font/nanumsquare_b"
                         android:textSize="22sp" />
 
                     <Button
@@ -158,6 +80,7 @@
                         android:textAlignment="center"
                         android:textColor="#7C889A"
                         android:textSize="22sp"
+                        android:fontFamily="@font/nanumsquare_b"
                         android:background="@drawable/lens_unselect_button" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -165,12 +88,12 @@
                     android:id="@+id/add_lens_btn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="15dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_weight="3"
-                    android:padding="25dp"
+                    android:layout_weight="2.5"
+                    android:padding="40dp"
                     android:autoSizeTextType="uniform"
                     android:background="@drawable/lens_plus_button"
                     android:drawableBottom="@drawable/plusbutton"
@@ -185,7 +108,7 @@
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
                 android:layout_marginBottom="8dp"
-                android:layout_weight="1.5" />
+                android:layout_weight="2" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

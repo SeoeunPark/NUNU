@@ -1,18 +1,20 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">#F2a0c0ee</item>
-        <!--<item name="colorPrimaryDark">#3498db</item>-->
         <item name="android:textColorPrimary">#ffffff</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
-
     <style name="SplashTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
+
+    <style name="MyPopupMenu" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@drawable/round_background_detail</item>
+    </style>
+
     <style name="LabelStyle">
         <item name="android:background">@drawable/fab_plus</item>
     </style>

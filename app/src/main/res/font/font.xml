@@ -2,23 +2,19 @@
 <font-family xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <font
-        android:font="@font/hansansbold"
+        android:font="@font/nanumsquare_eb"
         android:fontStyle="normal"
         app:fontStyle="normal" />
     <font
-        android:font="@font/hansanslight"
+        android:font="@font/nanumsquare_b"
         android:fontStyle="normal"
         app:fontStyle="normal" />
     <font
-        android:font="@font/hansansmedium"
+        android:font="@font/nanumsquare_r"
         android:fontStyle="normal"
         app:fontStyle="normal" />
     <font
-        android:font="@font/hansansregular"
-        android:fontStyle="normal"
-        app:fontStyle="normal" />
-    <font
-        android:font="@font/hansansthin"
+        android:font="@font/nanumsquare_l"
         android:fontStyle="normal"
         app:fontStyle="normal" />
 
