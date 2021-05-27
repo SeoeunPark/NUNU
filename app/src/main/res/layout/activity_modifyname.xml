@@ -17,7 +17,7 @@ tools:context=".modifyname">
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="14dp"
         android:text="이름 변경하기"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/done"
@@ -35,40 +35,54 @@ tools:context=".modifyname">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <RelativeLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
-            android:text="새로운 이름을 입력해주세요."
-            android:textSize="25sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="240dp"
+            android:text="변경하실 이름을 입력해주세요."
+            android:textSize="35sp"
             android:textStyle="bold"
-            android:layout_centerHorizontal="true"/>
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/nowText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:text="현재 등록된 이름은 OOO이에요."
-            android:textSize="18sp"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/textView6" />
+            android:textSize="28sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <EditText
             android:id="@+id/change_name"
-            android:layout_width="300dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="194dp"
+            android:layout_width="394dp"
+            android:layout_height="53dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="56dp"
             android:ems="10"
-            android:textSize="20sp"
-            android:inputType="text"
             android:hint="이름"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+            android:inputType="text"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nowText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
         android:id="@+id/exit"
