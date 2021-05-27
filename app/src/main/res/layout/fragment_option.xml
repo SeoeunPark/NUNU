@@ -109,6 +109,7 @@
                 android:layout_marginBottom="64dp"
                 android:text="이름 변경"
                 android:textSize="25sp"
+                android:fontFamily="@font/nanumsquare_r"
                 app:layout_constraintBottom_toBottomOf="@+id/changename"
                 app:layout_constraintEnd_toEndOf="@+id/changename"
                 app:layout_constraintStart_toStartOf="@+id/changename" />
@@ -132,6 +133,7 @@
                 android:layout_marginBottom="16dp"
                 android:text="데이터 설정"
                 android:textSize="25sp"
+                android:fontFamily="@font/nanumsquare_r"
                 app:layout_constraintBottom_toBottomOf="@+id/setdata"
                 app:layout_constraintEnd_toEndOf="@+id/setdata"
                 app:layout_constraintStart_toStartOf="@+id/setdata"
@@ -146,6 +148,7 @@
                 android:layout_marginTop="40dp"
                 android:text="알림 설정"
                 android:textSize="25sp"
+                android:fontFamily="@font/nanumsquare_r"
                 app:layout_constraintStart_toStartOf="@+id/imageView10"
                 app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
@@ -158,6 +161,7 @@
                 android:layout_marginTop="96dp"
                 android:text="누누는 렌즈 사용 기한 만료와 관련된 알림을 제공합니다. \n알림 허용 상태인지 확인해주세요."
                 android:textSize="25sp"
+                android:fontFamily="@font/nanumsquare_r"
                 app:layout_constraintStart_toStartOf="@+id/imageView10"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -169,6 +173,7 @@
                 android:layout_marginBottom="16dp"
                 android:text="데이터 삭제"
                 android:textSize="25sp"
+                android:fontFamily="@font/nanumsquare_r"
                 app:layout_constraintBottom_toBottomOf="@+id/deletedata"
                 app:layout_constraintEnd_toEndOf="@+id/deletedata"
                 app:layout_constraintStart_toStartOf="@+id/deletedata"
@@ -181,6 +186,7 @@
                 android:layout_marginBottom="16dp"
                 android:text="시력 변경"
                 android:textSize="25sp"
+                android:fontFamily="@font/nanumsquare_r"
                 app:layout_constraintBottom_toBottomOf="@+id/changesight"
                 app:layout_constraintEnd_toEndOf="@+id/changesight"
                 app:layout_constraintHorizontal_bias="0.525"

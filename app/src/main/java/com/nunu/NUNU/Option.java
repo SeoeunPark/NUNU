@@ -19,8 +19,8 @@ import androidx.room.Room;
 
 public class Option extends Fragment {
     User User = new User();
-    ChangeName ChangeName = new ChangeName();
-    ChangeSight ChangeSight = new ChangeSight();
+    modifyname ChangeName = new modifyname();
+    modifysight ChangeSight = new modifysight();
     InitSetting ChangeAll = new InitSetting();
     @Override
     public void onCreate(Bundle savedInstanceState) {
