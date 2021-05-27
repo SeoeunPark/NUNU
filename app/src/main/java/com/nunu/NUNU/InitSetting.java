@@ -21,7 +21,6 @@ public class InitSetting extends Fragment {
     public EditText set_name;
     public EditText set_left;
     public EditText set_right;
-    private TextView show_data;
     User user = new User();
 
     @Override

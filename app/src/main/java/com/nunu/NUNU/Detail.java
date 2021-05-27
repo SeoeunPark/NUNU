@@ -174,7 +174,7 @@ public class Detail extends AppCompatActivity {
 
     }
 
-
+    //디데이가 하루 남았을 경우 알림을 제공하는 서비스
     public void showNoti(){
         builder = null;
         manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

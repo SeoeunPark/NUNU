@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
-    public SharedPreferences prefs; // 선언하기
+    public SharedPreferences prefs; // 키-값 쌍이 포함된 파일을 가리키는 SharedPreferences 객체 선언하기
     Fragment InitSetting = new InitSetting();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class SplashActivity extends AppCompatActivity {
         finish();
     }
 
+    // 앱을 설치 후 첫 실행인지 확인하는 코드
     public void checkFirstRun() {
         boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
         if (isFirstRun) {

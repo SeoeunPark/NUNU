@@ -22,11 +22,13 @@ public class Option extends Fragment {
     modifyname ChangeName = new modifyname();
     modifysight ChangeSight = new modifysight();
     InitSetting ChangeAll = new InitSetting();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

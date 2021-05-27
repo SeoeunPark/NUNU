@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
     private final static int SETTING= 5;
 
     //Lens fragment1; // 렌즈 fragment
-    Stretching fragment1;
-    Calendar fragment2;
+    Stretching fragment1; // 스트레칭 fragment
+    Calendar fragment2; // 캘린더 fragment
     Lens fragment3; // 홈 fragment
     User fragment4; // 유저 fragment
     Option fragment5; //설정 fragment
@@ -52,14 +52,14 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getId()){
                 case STRETCHING:
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment1).commitAllowingStateLoss();
-                    //select_fragment = new Lens();
+                    //select_fragment = new Stretching();
                     break;
                 case CALENDAR:
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment2).commitAllowingStateLoss();
-                    //select_fragment = new EyeTest();
+                    //select_fragment = new Calendar();
                     break;
                 case HOME:
-                    //select_fragment = new User();
+                    //select_fragment = new Lens();
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment3).commitAllowingStateLoss();
                     break;
                 case USER:
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment4).commitAllowingStateLoss();
                     break;
                 case SETTING:
-                    //select_fragment = new User();
+                    //select_fragment = new Option();
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment5).commitAllowingStateLoss();
                     break;
             }

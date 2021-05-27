@@ -60,7 +60,7 @@ public class User extends Fragment {
 
 
     private void initInfo(ViewGroup rootView){
-        SimpleDateFormat sdf = new SimpleDateFormat("k");
+        SimpleDateFormat sdf = new SimpleDateFormat("k");  // k패턴은 시간(1~24) 을 의미함
         Calendar cal = Calendar.getInstance();
         String h = sdf.format(cal.getTime());
         int hour = Integer.parseInt(h);
@@ -86,6 +86,7 @@ public class User extends Fragment {
 
     }
 
+    // 데이터베이스에서 데이터를 가져와 그래프로 그리는 메소드
     private void initGraph(ViewGroup rootView){
         lineChart = rootView.findViewById(R.id.sightchart);
         Context context = getContext();
@@ -93,12 +94,16 @@ public class User extends Fragment {
                 .fallbackToDestructiveMigration ()
                 .allowMainThreadQueries()
                 .build();
+
+        // 좌안 시력용 그래프
         List<Entry> leftEntry = new ArrayList<>();
         leftEntry.add(new Entry(1,(float)0.0));
         for(int i = 0; i< db.UserDao().getAll().size();i++){
             double leftSight = Double.parseDouble(db.UserDao().getAll().get(i).getLeftSight());
             leftEntry.add(new Entry(i+2, (float) leftSight));
         }
+
+        // 우안 시력용 그래프
         List<Entry> rightEntry = new ArrayList<>();
         rightEntry.add(new Entry(1,(float)0.0));
         for(int i = 0; i< db.UserDao().getAll().size();i++){
@@ -107,6 +112,7 @@ public class User extends Fragment {
         }
         LineDataSet set1 = new LineDataSet(leftEntry, "왼쪽 시력");
         LineDataSet set2 = new LineDataSet(rightEntry, "오른쪽 시력");
+
         set1.setAxisDependency(YAxis.AxisDependency.LEFT);
         set1.setColor(ColorTemplate.getHoloBlue());
         set1.setValueTextColor(ColorTemplate.getHoloBlue());

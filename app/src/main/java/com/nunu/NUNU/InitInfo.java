@@ -18,12 +18,12 @@ public class InitInfo extends AppCompatActivity {
     public EditText set_name;
     public EditText set_left;
     public EditText set_right;
+    public Button add_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initinfo);
-        Button add_button = findViewById(R.id.add_button);
 
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "userinfo-db")
                 .fallbackToDestructiveMigration()
@@ -33,8 +33,12 @@ public class InitInfo extends AppCompatActivity {
         set_name = findViewById(R.id.set_name);
         set_left = findViewById(R.id.set_left);
         set_right = findViewById(R.id.set_right);
+        add_button = findViewById(R.id.add_button);
 
+
+        // 버튼 클릭시 실행되는 메소드
         add_button.setOnClickListener(new Button.OnClickListener() {
+            // 사용자에게 입력받은 값이 올바른 값인지 판별하는 함수
             public void insertNum(){
                 Boolean check = true;
                 Boolean check2 = true;
@@ -77,6 +81,8 @@ public class InitInfo extends AppCompatActivity {
                 SimpleDateFormat fdate = new SimpleDateFormat("MM/dd");
                 Date date = new Date();
                 insertNum();
+
+                //사용자가 입력해야할 모든 것을 입력했는지 확인하는 코드
                 if(TextUtils.isEmpty(set_name.getText().toString())){
                     Toast.makeText(InitInfo.this,"이름을 입력해주세요.",Toast.LENGTH_SHORT).show();
                 }else if(TextUtils.isEmpty(set_left.getText().toString())){
