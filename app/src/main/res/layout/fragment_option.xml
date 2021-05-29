@@ -82,8 +82,8 @@
 
             <ImageView
                 android:id="@+id/imageView10"
-                android:layout_width="656dp"
-                android:layout_height="282dp"
+                android:layout_width="690dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="56dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.531"
@@ -154,14 +154,14 @@
 
             <TextView
                 android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="645dp"
+                android:layout_height="78dp"
                 android:layout_marginStart="36dp"
-                android:layout_marginLeft="36dp"
                 android:layout_marginTop="96dp"
-                android:text="누누는 렌즈 사용 기한 만료와 관련된 알림을 제공합니다. \n알림 허용 상태인지 확인해주세요."
-                android:textSize="25sp"
                 android:fontFamily="@font/nanumsquare_r"
+                android:text="누누는 렌즈 사용 기한 만료와 관련된 알림을 제공합니다. \n알림 허용 상태인지 확인해주세요."
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
                 app:layout_constraintStart_toStartOf="@+id/imageView10"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 

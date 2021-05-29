@@ -102,14 +102,14 @@
 
         <Button
             android:id="@+id/add_button"
-            android:layout_width="354dp"
-            android:layout_height="83dp"
+            android:layout_width="265dp"
+            android:layout_height="43dp"
             android:layout_marginTop="288dp"
             android:background="@drawable/okbtn"
+            android:fontFamily="@font/nanumsquare_r"
             android:text="Ok"
             android:textColor="#6FA5CD"
-            android:textSize="50sp"
-            android:fontFamily="@font/nanumsquare_r"
+            android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/set_right" />
