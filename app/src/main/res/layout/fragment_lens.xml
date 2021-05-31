@@ -57,7 +57,7 @@
 
                     <Button
                         android:id="@+id/oneday_select_btn"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="20dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="5dp"
                         android:layout_weight="2"
@@ -88,9 +88,9 @@
                     android:id="@+id/add_lens_btn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="2.5"
                     android:padding="40dp"
