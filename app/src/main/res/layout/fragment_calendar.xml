@@ -11,7 +11,7 @@
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mcv_selectionColor="#888888"
+        app:mcv_selectionColor="#cc46A6EB"
         app:mcv_showOtherDates="defaults" />
     <LinearLayout
         android:layout_width="match_parent"
