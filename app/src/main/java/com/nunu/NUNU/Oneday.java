@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.AsyncTask;
 import android.text.TextUtils;
@@ -140,7 +141,6 @@ public class Oneday extends AppCompatActivity  {
                 .setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
                     @Override
                     public void onChooseColor(int position, int color) {
-                        //layout.setBackgroundColor(color);  // OK 버튼 클릭 시 이벤트
                         pallete.setBackgroundColor(color);
                         posi = position;
                         //
@@ -166,6 +166,7 @@ public class Oneday extends AppCompatActivity  {
                             clname = "보라색";
                         }else{
                             clname="파랑색";
+                            pallete.setBackgroundColor(Color.parseColor("#4863ad"));
                         }
                     }
                     @Override

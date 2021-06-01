@@ -215,7 +215,6 @@ public class LensCalendar extends Fragment {
                 dates.add(day);
             }
             return dates;
-
         }
 
         @Override

@@ -236,6 +236,7 @@ public class EditOneday extends AppCompatActivity  {
                             eclname = "보라색";
                         }else{
                             eclname ="파랑색";
+                            epallete.setBackgroundColor(Color.parseColor("#4863ad"));
                         }
                     }
                     @Override
