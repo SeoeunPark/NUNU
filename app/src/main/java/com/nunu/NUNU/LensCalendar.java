@@ -15,6 +15,7 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.time.Month;
 import java.util.ArrayList;
 
 import com.github.mikephil.charting.data.Entry;
@@ -37,6 +41,8 @@ import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -47,9 +53,9 @@ public class LensCalendar extends Fragment {
 
     private List<Note> mDataItemList;
     private NoteAdapter mListAdapter;
+    private CalendarDay date;
 
-
-    String time,kcal,menu;
+    String time,kcal,menu,lens_box;
     private final OneDayDecorator oneDayDecorator = new OneDayDecorator();
     Cursor cursor;
     MaterialCalendarView materialCalendarView;
@@ -67,6 +73,46 @@ public class LensCalendar extends Fragment {
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_calendar, container, false);
         materialCalendarView = rootView.findViewById(R.id.calendarView);
+
+        TextView calendar_date = rootView.findViewById(R.id.calendar_date);
+        TextView calendar_name = rootView.findViewById(R.id.calendar_name);
+
+        //오늘 날짜 출력
+        date = CalendarDay.today();
+
+        String today_Year = Integer.toString(date.getYear());
+        String today_Month = Integer.toString(date.getMonth() + 1);
+        String today_Day = Integer.toString(date.getDay());
+
+        Log.i("Year test", today_Year + "");
+        Log.i("Month test", today_Month + "");
+        Log.i("Day test", today_Day + "");
+
+        if(today_Month.length()==1){
+            today_Month="0"+today_Month;
+        }
+        if(today_Day.length()==1){
+            today_Day="0"+today_Day;
+        }
+        String today_show_Day = today_Year + "년 " + today_Month + "월 " + today_Day +"일 "+"만료 렌즈";
+
+        String today_lens_box = "";
+        
+        for(int i = 0; i<adapter.getItemCount(); i++){
+            String enddate = adapter.getNoteAt(i).getLens_end();
+            if(date.equals(enddate)){
+                today_lens_box +="- "+adapter.getNoteAt(i).getLens_name()+"\n";
+            }
+        }
+        if(today_lens_box.trim().length() == 0){
+            calendar_name.setText("만료예정 렌즈가 없어요");
+        }else{
+            calendar_name.setText(today_lens_box);
+        }
+        calendar_date.setText(today_show_Day);
+
+
+
         super.onCreate(savedInstanceState);
         materialCalendarView.state().edit()
                 .setFirstDayOfWeek(Calendar.SUNDAY)
@@ -80,24 +126,57 @@ public class LensCalendar extends Fragment {
                 new SaturdayDecorator(),
                 oneDayDecorator);
 
-
+        //점 표시
         new ApiSimulator(result).executeOnExecutor(Executors.newSingleThreadExecutor());
 
+        //날짜 클릭했을 때
         materialCalendarView.setOnDateChangedListener((widget, date, selected) -> {
-            int Year = date.getYear();
-            int Month = date.getMonth() + 1;
-            int Day = date.getDay();
+
+            lens_box ="";
+
+            String Year = Integer.toString(date.getYear());
+            String Month = Integer.toString(date.getMonth() + 1);
+            String Day = Integer.toString(date.getDay());
 
             Log.i("Year test", Year + "");
             Log.i("Month test", Month + "");
             Log.i("Day test", Day + "");
 
-            String shot_Day = Year + "," + Month + "," + Day;
+            if(Month.length()==1){
+                Month="0"+Month;
+            }
+            if(Day.length()==1){
+                Day="0"+Day;
+            }
+
+            String shot_Day = Year + "/" + Month + "/" + Day;
+            String show_Day = Year + "년 " + Month + "월 " + Day +"일 "+"만료 렌즈";
 
             Log.i("shot_Day test", shot_Day + "");
-            //materialCalendarView.clearSelection();
-
             Toast.makeText(getContext(), shot_Day , Toast.LENGTH_SHORT).show();
+
+            for(int i = 0; i<adapter.getItemCount();i++){
+                String enddate = adapter.getNoteAt(i).getLens_end();
+                if(shot_Day.equals(enddate)){
+                    lens_box +="- "+adapter.getNoteAt(i).getLens_name()+"\n";
+                }
+            }
+            if(lens_box.trim().length() == 0){
+                calendar_name.setText("만료예정 렌즈가 없어요");
+            }else{
+                calendar_name.setText(lens_box);
+            }
+                calendar_date.setText(show_Day);
+
+            new Handler().postDelayed(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    materialCalendarView.clearSelection();
+                }
+            }, 2000);// 0.6초 정도 딜레이를 준 후 시작
+
         });
         return rootView;
     }

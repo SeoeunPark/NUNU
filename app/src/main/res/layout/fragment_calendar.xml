@@ -11,15 +11,43 @@
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mcv_selectionColor="#cc46A6EB"
+        app:mcv_selectionColor="#5946A6EB"
         app:mcv_showOtherDates="defaults" />
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ScrollView
+        android:id="@+id/textbox"
+        android:layout_width="740dp"
         android:layout_height="200dp"
         android:layout_gravity="bottom"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/round_background_50"/>
+        android:background="@drawable/round_background_50">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/calendar_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/gray8"
+                android:fontFamily="@font/nanumsquare_b"
+                android:text="YYYY/MM/DD"
+                android:textSize="25sp"/>
+            <TextView
+                android:id="@+id/calendar_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/gray7"
+                android:fontFamily="@font/nanumsquare_r"
+                android:text="렌즈 이름"
+                android:lineSpacingExtra="8dp"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
