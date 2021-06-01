@@ -72,7 +72,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
                         android:layout_marginTop="8dp"
-                        android:fontFamily="@font/nanumsquare_r"
+                        android:fontFamily="@font/nanumsquare_b"
                         android:gravity="center_vertical"
                         android:text="렌즈 이름"
                         android:textColor="#4D5053"

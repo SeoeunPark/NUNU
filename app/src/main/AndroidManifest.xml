@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_main_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".EditMonthly"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
