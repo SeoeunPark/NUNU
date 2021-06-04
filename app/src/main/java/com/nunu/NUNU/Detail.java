@@ -136,9 +136,9 @@ public class Detail extends AppCompatActivity {
         if (idcl.equals("오렌지")) {
             dimage.setImageResource(R.drawable.orange);
         } else if (idcl.equals("연갈색")) {
-            dimage.setImageResource(R.drawable.mocha);
-        } else if (idcl.equals("갈색")) {
             dimage.setImageResource(R.drawable.wood);
+        } else if (idcl.equals("갈색")) {
+            dimage.setImageResource(R.drawable.mocha);
         } else if (idcl.equals("회색")) {
             dimage.setImageResource(R.drawable.gray);
         } else if (idcl.equals("검정색")) {
