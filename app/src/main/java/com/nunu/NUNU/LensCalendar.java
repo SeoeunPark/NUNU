@@ -55,7 +55,8 @@ public class LensCalendar extends Fragment {
     private NoteAdapter mListAdapter;
     private CalendarDay date;
 
-    String time,kcal,menu,lens_box;
+    String time,kcal,menu;
+    String lens_box="";
     private final OneDayDecorator oneDayDecorator = new OneDayDecorator();
     Cursor cursor;
     MaterialCalendarView materialCalendarView;
@@ -95,15 +96,17 @@ public class LensCalendar extends Fragment {
             today_Day="0"+today_Day;
         }
         String today_show_Day = today_Year + "년 " + today_Month + "월 " + today_Day +"일 "+"만료 렌즈";
+        String today_shot_Day = today_Year + "/" + today_Month + "/" + today_Day;
 
         String today_lens_box = "";
-        
-        for(int i = 0; i<adapter.getItemCount(); i++){
-            String enddate = adapter.getNoteAt(i).getLens_end();
-            if(date.equals(enddate)){
+
+        for(int i = 0; i<adapter.getItemCount();i++){
+            String today_enddate = adapter.getNoteAt(i).getLens_end();
+            if(today_shot_Day.equals(today_enddate)){
                 today_lens_box +="- "+adapter.getNoteAt(i).getLens_name()+"\n";
             }
         }
+
         if(today_lens_box.trim().length() == 0){
             calendar_name.setText("만료예정 렌즈가 없어요");
         }else{
