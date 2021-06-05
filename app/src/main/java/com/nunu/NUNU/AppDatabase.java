@@ -12,7 +12,7 @@ import androidx.room.TypeConverters;
 public abstract class AppDatabase extends RoomDatabase {
     public static AppDatabase INSTANCE;
     public abstract UserDao UserDao(); //UserDao 인터페이스
-    public abstract LensDao lensDao(); //LensDao 인터페이스
+    //public abstract LensDao LensDao(); //LensDao 인터페이스
 
     public static AppDatabase getAppDatabase(Context context){
         if(INSTANCE ==null) {

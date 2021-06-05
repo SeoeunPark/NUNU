@@ -130,7 +130,7 @@ public class Detail extends AppCompatActivity {
             dperiod_s.setVisibility(View.VISIBLE);
             dperiod_s.setText("착용 주기: "+idperiod_s);
             idtype_om = "기간 렌즈";
-            dinfo.setText("기간 렌즈는 한번 개봉하고 사용기한이 지나면\n 반드시 폐기를 해주어야 합니다.\n 개봉하지 않은 렌즈도 5년이 지나면 버려야 합니다. ");
+            dinfo.setText("기간 렌즈는 한번 개봉하고 사용기한이 지나면\n반드시 폐기를 해주어야 합니다.\n개봉하지 않은 렌즈도 5년이 지나면 버려야 합니다. ");
         }
 
         if (idcl.equals("오렌지")) {

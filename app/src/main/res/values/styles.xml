@@ -1,8 +1,10 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!--<item name="android:itemTextAppearance">#000000</item>-->
         <item name="colorPrimary">#F2a0c0ee</item>
         <item name="android:textColorPrimary">#ffffff</item>
+        <item name="android:itemBackground">#CF6FA5CD</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
@@ -14,7 +16,6 @@
     <style name="MyPopupMenu" parent="Theme.AppCompat.Dialog">
         <item name="android:windowBackground">@drawable/round_background_detail</item>
     </style>
-
     <style name="LabelStyle">
         <item name="android:background">@drawable/fab_plus</item>
     </style>

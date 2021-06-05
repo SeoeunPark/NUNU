@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -170,6 +171,7 @@ public class Monthly extends AppCompatActivity {
                             clname = "보라색";
                         }else{
                             clname="파랑색";
+                            pallete.setBackgroundColor(Color.parseColor("#4863ad"));
                         }
 
                     }

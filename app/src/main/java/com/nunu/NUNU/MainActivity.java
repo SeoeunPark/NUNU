@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Lens fragment1; // 렌즈 fragment
     Stretching fragment1;
-    Calendar fragment2;
+    LensCalendar fragment2;
     Lens fragment3; // 홈 fragment
     User fragment4; // 유저 fragment
     Option fragment5; //설정 fragment
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setPointerIcon(null);
         //프래그먼트 생성
         fragment1 = new Stretching();
-        fragment2 = new Calendar();
+        fragment2 = new LensCalendar();
         fragment3 = new Lens();
         fragment4 = new User();
         fragment5 = new Option();

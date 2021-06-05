@@ -9,6 +9,10 @@
     <color name ="black">#000000</color>
     <color name ="red">#ED1000</color>
     <color name = "green">#4CAF50</color>
-    <color name = "tg">#7C889A</color>
+    <color name = "gray9">#212529</color>
+    <color name = "gray8">#343a40</color>
+    <color name = "gray7">#495057</color>
+    <color name = "gray6">#868396</color>
+
 
 </resources>

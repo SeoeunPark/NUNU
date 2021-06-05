@@ -17,6 +17,7 @@ android:viewportHeight="248"
 <path
     android:pathData="M4 4V244V4Z"
     android:strokeWidth="10"
+    android:strokeLineCap="round"
     android:strokeColor="#C74646"
     />
 </vector>
