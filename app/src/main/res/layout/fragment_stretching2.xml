@@ -26,7 +26,7 @@
         android:id="@+id/eyeup"
         android:layout_width="474dp"
         android:layout_height="492dp"
-        android:src="@drawable/eyeup"
+        android:src="@drawable/eyeleft"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="@+id/imageView7"
         app:layout_constraintStart_toStartOf="@+id/imageView7"

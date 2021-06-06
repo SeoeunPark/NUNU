@@ -62,7 +62,7 @@ public class Option extends Fragment {
         deleteAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context , R.style.MyDialogTheme);
                 builder.setTitle("데이터 초기화");
                 builder.setMessage("데이터를 초기화하시겠습니까?");
                 builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
@@ -76,6 +76,11 @@ public class Option extends Fragment {
                 builder.setNegativeButton("아니오",null);
 
                 builder.create().show();
+//                CustomDialog customDialog = new CustomDialog(getContext());
+//
+//                customDialog.callFunction();
+
+
             }
         });
 

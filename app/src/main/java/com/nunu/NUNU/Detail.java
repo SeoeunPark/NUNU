@@ -186,8 +186,7 @@ public class Detail extends AppCompatActivity {
         }
         builder.setContentTitle("D-1");
         builder.setContentText(idname+" 렌즈 유효기간이 하루 남았습니다!");
-        builder.setSmallIcon(R.drawable.ic_noti);
-        //builder.setSmallIcon(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP ? R.drawable.appicon : R.mipmap.ic_launcher);
+        builder.setSmallIcon(R.mipmap.ic_main);
         builder.setAutoCancel(true);
         Notification notification = builder.build();
         manager.notify(1,notification);

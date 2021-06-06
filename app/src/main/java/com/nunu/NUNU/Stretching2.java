@@ -21,9 +21,9 @@ import org.w3c.dom.Text;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-public class Stretching extends Fragment {
+public class Stretching2 extends Fragment {
     private TextToSpeech tts;
-    Stretching2 next = new Stretching2();
+
     private long timeCountInMilliSeconds = 1 * 60000;
 
     // 현재 타이머 상태
@@ -64,7 +64,7 @@ public class Stretching extends Fragment {
             public void onClick(View view) {
                 //멈춤 버튼 보이기
                 pause.setVisibility(View.VISIBLE);
-                tts.speak("10초간 천장을 올려다보세요.",TextToSpeech.QUEUE_FLUSH,null);
+                tts.speak("10초간 왼쪽을 바라보세요",TextToSpeech.QUEUE_FLUSH,null);
                 //실행 버튼 숨기기
                 play.setVisibility(View.GONE);
                 startStop();
@@ -134,12 +134,11 @@ public class Stretching extends Fragment {
 
             @Override
             public void onFinish() {
-               // timeText.setText(hmsTimeFormatter(timeCountInMilliSeconds));
+                timeText.setText(hmsTimeFormatter(timeCountInMilliSeconds));
                 setProgressBarValues();
                 play.setVisibility(View.VISIBLE);
                 pause.setVisibility(View.GONE);
                 timerStatus = TimerStatus.STOPPED;
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, next).commitAllowingStateLoss();
             }
         }.start();
         countDownTimer.start();

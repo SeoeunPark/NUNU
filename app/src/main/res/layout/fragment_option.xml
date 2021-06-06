@@ -82,7 +82,7 @@
 
             <ImageView
                 android:id="@+id/imageView10"
-                android:layout_width="656dp"
+                android:layout_width="690dp"
                 android:layout_height="282dp"
                 android:layout_marginTop="56dp"
                 app:layout_constraintEnd_toEndOf="parent"
