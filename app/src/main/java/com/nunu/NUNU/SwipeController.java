@@ -175,7 +175,6 @@ class SwipeController extends Callback {
             buttonInstance = rightButton;
         }
     }
-
     private void drawText(String text, Canvas c, RectF button, Paint p) {
         float textSize = 60;
         p.setColor(Color.WHITE);

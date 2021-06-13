@@ -19,6 +19,7 @@
         android:layout_above="@+id/bottomNavigationView" />
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation
         android:background="#bfcee7"
+        app:mbn_shadowColor="#bfcee7"
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
