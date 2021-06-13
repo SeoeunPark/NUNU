@@ -135,7 +135,7 @@ public class User extends Fragment {
 
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setTextColor(Color.WHITE);
+        xAxis.setTextColor(Color.TRANSPARENT);
         xAxis.enableGridDashedLine(8, 24, 0);
         YAxis yLAxis = lineChart.getAxisLeft();
         yLAxis.setTextColor(Color.BLACK);

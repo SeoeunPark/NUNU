@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 public class MyDialog extends Dialog {
 
     private Button Confirm;
-
     private View.OnClickListener Confirm_Btn;
 
     public TextView Body;

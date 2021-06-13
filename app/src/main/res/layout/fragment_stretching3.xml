@@ -7,52 +7,71 @@
     android:background="@drawable/background">
 
 
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/nanumsquare_r"
+        android:text="10초간 오른쪽을 바라보세요."
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="690dp"
         android:layout_height="472dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:src="@drawable/strerect"
+        app:srcCompat="@drawable/round_background4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/round_background4" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/eyeleft"
         android:layout_width="474dp"
         android:layout_height="492dp"
-        android:src="@drawable/eyeup"
+        android:src="@drawable/eyeright"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="@+id/imageView7"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="@+id/imageView7" />
 
-    <TextView
-        android:id="@+id/textView13"
+    <ImageView
+        android:id="@+id/next3_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="10초간 천장을 바라보세요"
-        android:textSize="30sp"
-        android:fontFamily="@font/nanumsquare_r"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        app:layout_constraintBottom_toBottomOf="@+id/eyeleft"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintStart_toEndOf="@+id/eyeleft"
+        app:layout_constraintTop_toTopOf="@+id/eyeleft"
+        app:srcCompat="@drawable/rightarrow" />
+
+    <ImageView
+        android:id="@+id/back2_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toStartOf="@+id/eyeleft"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        app:srcCompat="@drawable/leftarrow" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
         android:layout_width="898dp"
         android:layout_height="565dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.561"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.523">
+        app:layout_constraintTop_toBottomOf="@+id/imageView7">
 
         <ImageView
             android:id="@+id/play"
@@ -106,17 +125,5 @@
             app:layout_constraintEnd_toEndOf="@+id/progressBarCircle"
             app:layout_constraintStart_toStartOf="@+id/progressBarCircle"
             app:layout_constraintTop_toTopOf="@+id/progressBarCircle" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/next_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/eyeleft"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintStart_toEndOf="@+id/eyeleft"
-        app:layout_constraintTop_toTopOf="@+id/eyeleft"
-        app:srcCompat="@drawable/rightarrow" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

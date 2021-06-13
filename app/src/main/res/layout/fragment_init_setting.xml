@@ -12,7 +12,7 @@
         android:layout_height="1021dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
-        android:background="@drawable/round_background"
+        android:background="@drawable/round_background4"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,6 +30,7 @@
             android:text="이름"
             android:textColor="@color/black"
             android:textSize="26sp"
+            android:fontFamily="@font/nanumsquare_r"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,6 +42,7 @@
             android:text="왼쪽 시력"
             android:textColor="@color/black"
             android:textSize="26sp"
+            android:fontFamily="@font/nanumsquare_r"
             app:layout_constraintStart_toStartOf="@+id/set_name"
             app:layout_constraintTop_toBottomOf="@+id/set_name" />
 
@@ -54,6 +56,7 @@
             android:inputType="phone"
             android:textColor="#7C889A"
             android:textSize="20sp"
+            android:fontFamily="@font/nanumsquare_r"
             app:layout_constraintStart_toStartOf="@+id/left"
             app:layout_constraintTop_toBottomOf="@+id/left" />
 
@@ -67,6 +70,7 @@
             android:inputType="text"
             android:textColor="#7C889A"
             android:textSize="20sp"
+            android:fontFamily="@font/nanumsquare_r"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/name" />
 
@@ -80,6 +84,7 @@
             android:inputType="phone"
             android:textColor="#7C889A"
             android:textSize="20sp"
+            android:fontFamily="@font/nanumsquare_r"
             app:layout_constraintStart_toStartOf="@+id/right"
             app:layout_constraintTop_toBottomOf="@+id/right" />
 
@@ -91,6 +96,7 @@
             android:text="오른쪽 시력"
             android:textColor="@color/black"
             android:textSize="26sp"
+            android:fontFamily="@font/nanumsquare_r"
             app:layout_constraintStart_toStartOf="@+id/set_left"
             app:layout_constraintTop_toBottomOf="@+id/set_left" />
 
@@ -103,6 +109,7 @@
             android:text="Ok"
             android:textColor="#6FA5CD"
             android:textSize="50sp"
+            android:fontFamily="@font/nanumsquare_r"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/set_right" />
