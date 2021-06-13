@@ -59,7 +59,7 @@ public class Stretching4 extends Fragment {
             public void onClick(View view) {
                 //멈춤 버튼 보이기
                 pause.setVisibility(View.VISIBLE);
-                tts.speak("10초간 오른쪽을 바라보세요.",TextToSpeech.QUEUE_FLUSH,null);
+                tts.speak("10초간 아래쪽을 바라보세요.",TextToSpeech.QUEUE_FLUSH,null);
                 //실행 버튼 숨기기
                 play.setVisibility(View.GONE);
                 startStop();
