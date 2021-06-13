@@ -1,29 +1,25 @@
 package com.nunu.NUNU;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import static android.speech.tts.TextToSpeech.ERROR;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class Stretching2 extends Fragment {
     private TextToSpeech tts;
-
+    Stretching3 next = new Stretching3();
     private long timeCountInMilliSeconds = 1 * 60000;
 
     // 현재 타이머 상태
@@ -40,12 +36,13 @@ public class Stretching2 extends Fragment {
     private ImageView play;
     private ImageView pause;
     private CountDownTimer countDownTimer;
-
+    private ImageView next_btn;
+    private ImageView back_btn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_stretching, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_stretching2, container, false);
         initViews(rootView);
 
         // 음성출력하기 위해 한국어 설정
@@ -83,6 +80,36 @@ public class Stretching2 extends Fragment {
             }
         });
 
+        // 다음 스트레칭으로 이동할 수 있는 화살표 버튼 클릭시 발생하는 이벤트
+        next_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                setProgressBarValues();
+                play.setVisibility(View.VISIBLE);
+                pause.setVisibility(View.GONE);
+                timerStatus = TimerStatus.STOPPED;
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, next).commitAllowingStateLoss();
+            }
+        });
+
+        // 이전 스트레칭으로 이동할 수 있는 화살표 버튼 클릭시 발생하는 이벤트
+        back_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                setProgressBarValues();
+                play.setVisibility(View.VISIBLE);
+                pause.setVisibility(View.GONE);
+                timerStatus = TimerStatus.STOPPED;
+                Fragment newFragment = new Stretching();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_layout, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
+
+
         return rootView;
 
     }
@@ -93,6 +120,8 @@ public class Stretching2 extends Fragment {
         timeText = (TextView) view.findViewById(R.id.timeText);
         play = (ImageView) view.findViewById(R.id.play);
         pause = (ImageView) view.findViewById(R.id.pause);
+        next_btn = (ImageView) view.findViewById(R.id.next2_btn);
+        back_btn = (ImageView) view.findViewById(R.id.back_btn);
     }
 
 

@@ -1,29 +1,24 @@
 package com.nunu.NUNU;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import static android.speech.tts.TextToSpeech.ERROR;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-public class Stretching extends Fragment {
+public class Stretching4 extends Fragment {
     private TextToSpeech tts;
-    Stretching2 next = new Stretching2();
     private long timeCountInMilliSeconds = 1 * 60000;
 
     // 현재 타이머 상태
@@ -40,12 +35,12 @@ public class Stretching extends Fragment {
     private ImageView play;
     private ImageView pause;
     private CountDownTimer countDownTimer;
-    private ImageView next_btn;
+    private ImageView back_btn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_stretching, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_stretching4, container, false);
         initViews(rootView);
 
         // 음성출력하기 위해 한국어 설정
@@ -64,7 +59,7 @@ public class Stretching extends Fragment {
             public void onClick(View view) {
                 //멈춤 버튼 보이기
                 pause.setVisibility(View.VISIBLE);
-                tts.speak("10초간 천장을 올려다보세요.",TextToSpeech.QUEUE_FLUSH,null);
+                tts.speak("10초간 오른쪽을 바라보세요.",TextToSpeech.QUEUE_FLUSH,null);
                 //실행 버튼 숨기기
                 play.setVisibility(View.GONE);
                 startStop();
@@ -84,18 +79,22 @@ public class Stretching extends Fragment {
         });
 
 
-        // 다음 스트레칭으로 이동할 수 있는 화살표 버튼 클릭시 발생하는 이벤트
-        next_btn.setOnClickListener(new View.OnClickListener(){
+        // 이전 스트레칭으로 이동할 수 있는 화살표 버튼 클릭시 발생하는 이벤트
+        back_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 setProgressBarValues();
                 play.setVisibility(View.VISIBLE);
                 pause.setVisibility(View.GONE);
                 timerStatus = TimerStatus.STOPPED;
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, next).commitAllowingStateLoss();
+                Fragment newFragment = new Stretching3();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_layout, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
             }
         });
-
 
         return rootView;
 
@@ -107,7 +106,7 @@ public class Stretching extends Fragment {
         timeText = (TextView) view.findViewById(R.id.timeText);
         play = (ImageView) view.findViewById(R.id.play);
         pause = (ImageView) view.findViewById(R.id.pause);
-        next_btn = (ImageView) view.findViewById(R.id.next_btn);
+        back_btn = (ImageView) view.findViewById(R.id.back3_btn);
     }
 
 
@@ -149,12 +148,11 @@ public class Stretching extends Fragment {
 
             @Override
             public void onFinish() {
-               // timeText.setText(hmsTimeFormatter(timeCountInMilliSeconds));
+                // timeText.setText(hmsTimeFormatter(timeCountInMilliSeconds));
                 setProgressBarValues();
                 play.setVisibility(View.VISIBLE);
                 pause.setVisibility(View.GONE);
                 timerStatus = TimerStatus.STOPPED;
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, next).commitAllowingStateLoss();
             }
         }.start();
         countDownTimer.start();
