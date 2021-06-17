@@ -54,17 +54,19 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    app:layout_constraintBottom_toTopOf="@+id/Oneday_cnt"
+                    app:layout_constraintTop_toTopOf="@+id/Oneday_cnt">
 
                     <TextView
                         android:id="@+id/one_title_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/nanumsquare_b"
                         android:text="원데이 렌즈"
                         android:textColor="@color/gray8"
                         android:textSize="30sp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/nanumsquare_b"
                         app:layout_constraintBottom_toTopOf="@id/one_name_text"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -73,11 +75,11 @@
                         android:id="@+id/one_name_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/nanumsquare_r"
                         android:text="렌즈 이름"
                         android:textColor="@color/gray8"
                         android:textSize="25sp"
-                        android:layout_marginTop="40dp"
-                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/Oneday_name"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/one_title_text" />
@@ -86,11 +88,11 @@
                         android:id="@+id/Oneday_name"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumsquare_r"
                         android:hint="ex) 악마 홀로리스 원데이 "
                         android:inputType="text"
                         android:textColor="@color/gray7"
                         android:textSize="20sp"
-                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/one_type_text"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/one_name_text" />
@@ -100,10 +102,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
+                        android:fontFamily="@font/nanumsquare_r"
                         android:text="렌즈 유형"
                         android:textColor="@color/gray8"
                         android:textSize="25sp"
-                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/Oneday_type"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/Oneday_name" />
@@ -116,10 +118,10 @@
                         android:clickable="true"
                         android:editable="false"
                         android:focusable="false"
+                        android:fontFamily="@font/nanumsquare_r"
                         android:hint="ex)소프트렌즈"
                         android:textColor="@color/gray7"
                         android:textSize="20sp"
-                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/one_cnt_text"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/one_type_text" />
@@ -129,42 +131,75 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
+                        android:fontFamily="@font/nanumsquare_r"
                         android:text="보유 개수"
                         android:textColor="@color/gray8"
                         android:textSize="25sp"
-                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/Oneday_cnt"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/Oneday_type" />
-                    />
+
 
                     <EditText
                         android:id="@+id/Oneday_cnt"
-                        android:layout_width="300dp"
+                        android:layout_width="190dp"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumsquare_r"
                         android:hint="ex) 30 "
                         android:inputType="phone"
+                        android:text="0"
                         android:textColor="@color/gray7"
                         android:textSize="20sp"
-                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/one_period_text"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/one_cnt_text" />
-                    />
+
+                    <Button
+                        android:id="@+id/oneday_decrease_btn"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="40dp"
+                        android:background="#88B6BDC3"
+                        android:fontFamily="@font/nanumsquare_eb"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        app:layout_constraintBottom_toTopOf="@id/one_period_text"
+                        app:layout_constraintLeft_toRightOf="@+id/Oneday_cnt"
+                        app:layout_constraintTop_toBottomOf="@id/one_cnt_text" />
+
+                    <Button
+                        android:id="@+id/oneday_increase_btn"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="40dp"
+                        android:background="#88B6BDC3"
+                        android:text="+"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:fontFamily="@font/nanumsquare_r"
+                        app:layout_constraintBottom_toTopOf="@id/one_period_text"
+                        app:layout_constraintLeft_toRightOf="@+id/oneday_decrease_btn"
+                        app:layout_constraintTop_toBottomOf="@id/one_cnt_text" />
 
                     <TextView
                         android:id="@+id/one_period_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
+                        android:fontFamily="@font/nanumsquare_r"
                         android:text="유효기간"
+                        android:textAlignment="center"
                         android:textColor="@color/gray8"
                         android:textSize="25sp"
-                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/Oneday_period"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/Oneday_cnt" />
-                    />
+
 
                     <EditText
                         android:id="@+id/Oneday_period"
@@ -173,10 +208,10 @@
                         android:clickable="true"
                         android:editable="false"
                         android:focusable="false"
+                        android:fontFamily="@font/nanumsquare_r"
                         android:hint="yyyy/mm/dd"
                         android:textColor="@color/gray7"
                         android:textSize="20sp"
-                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/one_color_text"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/one_period_text" />
@@ -187,10 +222,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
+                        android:fontFamily="@font/nanumsquare_r"
                         android:text="색상"
                         android:textColor="@color/gray8"
                         android:textSize="25sp"
-                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toTopOf="@id/Oneday_color"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/Oneday_period" />
@@ -211,10 +246,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="40dp"
                         android:background="@drawable/whitebutton"
+                        android:fontFamily="@font/nanumsquare_r"
                         android:text="저장"
                         android:textColor="#383A3C"
                         android:textSize="30sp"
-                        android:fontFamily="@font/nanumsquare_r"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent" />
 

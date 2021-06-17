@@ -39,15 +39,17 @@ public class EditMonthly extends AppCompatActivity {
         Calendar myCalendar = Calendar.getInstance();
         private Button epallete;
         private int eposi;
-        private EditText eone_name;
-        private EditText eone_cnt;
+        private EditText emon_name;
+        private EditText emon_cnt;
+        private EditText emon_type; // 렌즈유형
+        private EditText ecycle; // 렌즈유형
         private String eclname;  // 렌즈 색
         private String o_dday;
-        private Button ecancel; //X 버튼
-        private EditText eone_type; // 렌즈유형
-        private EditText ecycle; // 렌즈유형
-        private LensDao mLensDao;
         private String bcolorhex;
+        private Button ecancel; //X 버튼
+        private Button emonthly_decrease_btn;
+        private Button emonthly_increase_btn;
+        private LensDao mLensDao;
         private int eperiod;
         private int eid;
         Lens lens = new Lens();
@@ -59,13 +61,16 @@ public class EditMonthly extends AppCompatActivity {
             setContentView(R.layout.activity_edit_monthly);
 
             EditText et_Date = (EditText) findViewById(R.id.eMonthly_end);
-            eone_name = (EditText)findViewById(R.id.eMonthly_name);
-            eone_cnt = (EditText)findViewById(R.id.eMonthly_cnt);
+            emon_name = (EditText)findViewById(R.id.eMonthly_name);
+            emon_cnt = (EditText)findViewById(R.id.eMonthly_cnt);
             epallete = (Button) findViewById(R.id.eMonthly_color);
             ecycle = (EditText) findViewById(R.id.eMonthly_cycle);
             ecancel = (Button) findViewById(R.id.eto_main);
-            eone_type = (EditText)findViewById(R.id.eMonthly_type);
+            emon_type = (EditText)findViewById(R.id.eMonthly_type);
             Button o_save = findViewById(R.id.eMonthly_save);
+            emonthly_increase_btn = findViewById(R.id.emonthly_increase_btn);
+            emonthly_decrease_btn = findViewById(R.id.emonthly_decrease_btn);
+
 
             //값 받아오기
             Intent intent = getIntent();
@@ -115,34 +120,55 @@ public class EditMonthly extends AppCompatActivity {
             }
             //detail에서 받아온 값 보여주기
             eid = intent.getExtras().getInt("id"); //id 값
-            eone_name.setText(intent.getExtras().getString("name"));
-            eone_type.setText(intent.getExtras().getString("type"));
-            eone_cnt.setText(Integer.toString(intent.getExtras().getInt("cnt")));
+            emon_name.setText(intent.getExtras().getString("name"));
+            emon_type.setText(intent.getExtras().getString("type"));
+            emon_cnt.setText(Integer.toString(intent.getExtras().getInt("cnt")));
             eperiod = intent.getExtras().getInt("period"); //1 이면 원데이 2이면 먼슬리
             ecycle.setText(intent.getExtras().getString("start"));
             et_Date.setText(intent.getExtras().getString("end"));
 
 
-            eone_type.setOnClickListener(new View.OnClickListener() {
+            emon_type.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v){
                     type();
+                }
+            });
+
+            emonthly_increase_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int one_i = Integer.parseInt(String.valueOf(emon_cnt.getText()));
+                    one_i+=1;
+                    emon_cnt.setText(Integer.toString(one_i));
+
+                }
+            });
+
+            emonthly_decrease_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int one_d = Integer.parseInt(String.valueOf(emon_cnt.getText()));
+                    if(one_d>=1){
+                        one_d-=1;
+                        emon_cnt.setText(Integer.toString(one_d));
+                    }
                 }
             });
 
             o_save.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     Intent replyIntent = new Intent();
-                    if (TextUtils.isEmpty(eone_name.getText()) || TextUtils.isEmpty(eone_type.getText()) ||
-                            TextUtils.isEmpty(eclname) || TextUtils.isEmpty(eone_cnt.getText()) ||
+                    if (TextUtils.isEmpty(emon_name.getText()) || TextUtils.isEmpty(emon_type.getText()) ||
+                            TextUtils.isEmpty(eclname) || TextUtils.isEmpty(emon_cnt.getText()) ||
                             TextUtils.isEmpty(et_Date.getText())) {
                         Toast.makeText(context, "값을 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                         setResult(RESULT_CANCELED, replyIntent);
                     } else {
                         //String word = mEditWordView.getText().toString();
                         replyIntent.putExtra("eid",eid);
-                        replyIntent.putExtra("ename", eone_name.getText().toString()); //name 이란 이름으로 one_name에 들어간 text 저장
-                        replyIntent.putExtra("etype", eone_type.getText().toString());
-                        replyIntent.putExtra("ecnt",Integer.parseInt(eone_cnt.getText().toString()));
+                        replyIntent.putExtra("ename", emon_name.getText().toString()); //name 이란 이름으로 one_name에 들어간 text 저장
+                        replyIntent.putExtra("etype", emon_type.getText().toString());
+                        replyIntent.putExtra("ecnt",Integer.parseInt(emon_cnt.getText().toString()));
                         replyIntent.putExtra("eperiod",eperiod); //1 이면 원데이 2이면 먼슬리
                         replyIntent.putExtra("estart",ecycle.getText().toString());
                         replyIntent.putExtra("ecl", eclname);

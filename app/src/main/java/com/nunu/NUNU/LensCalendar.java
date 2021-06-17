@@ -156,7 +156,6 @@ public class LensCalendar extends Fragment {
             String show_Day = Year + "년 " + Month + "월 " + Day +"일 "+"만료 렌즈";
 
             Log.i("shot_Day test", shot_Day + "");
-            Toast.makeText(getContext(), shot_Day , Toast.LENGTH_SHORT).show();
 
             for(int i = 0; i<adapter.getItemCount();i++){
                 String enddate = adapter.getNoteAt(i).getLens_end();

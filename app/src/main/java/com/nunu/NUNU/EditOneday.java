@@ -37,6 +37,8 @@ public class EditOneday extends AppCompatActivity  {
 
     Calendar myCalendar = Calendar.getInstance();
     private Button epallete;
+    private Button eoneday_decrease_btn;
+    private Button eoneday_increase_btn;
     private int eposi;
     private EditText eone_name;
     private EditText eone_cnt;
@@ -62,6 +64,9 @@ public class EditOneday extends AppCompatActivity  {
         ecancel = (Button) findViewById(R.id.eto_main);
         eone_type = (EditText)findViewById(R.id.eOneday_type);
         Button o_save = findViewById(R.id.eOneday_save);
+        eoneday_increase_btn = findViewById(R.id.eoneday_increase_btn);
+        eoneday_decrease_btn = findViewById(R.id.eoneday_decrease_btn);
+
 
 
         //값 받아오기
@@ -124,6 +129,28 @@ public class EditOneday extends AppCompatActivity  {
             }
         });
 
+        eoneday_increase_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int one_i = Integer.parseInt(String.valueOf(eone_cnt.getText()));
+                one_i+=1;
+                eone_cnt.setText(Integer.toString(one_i));
+
+            }
+        });
+
+        eoneday_decrease_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int one_d = Integer.parseInt(String.valueOf(eone_cnt.getText()));
+                if(one_d>=1){
+                    one_d-=1;
+                    eone_cnt.setText(Integer.toString(one_d));
+                }
+            }
+        });
+
+
         o_save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent replyIntent = new Intent();
@@ -133,9 +160,8 @@ public class EditOneday extends AppCompatActivity  {
                     Toast.makeText(context, "값을 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
-                    //String word = mEditWordView.getText().toString();
                     replyIntent.putExtra("eid",eid);
-                    replyIntent.putExtra("ename", eone_name.getText().toString()); //name 이란 이름으로 one_name에 들어간 text 저장
+                    replyIntent.putExtra("ename", eone_name.getText().toString());
                     replyIntent.putExtra("etype", eone_type.getText().toString());
                     replyIntent.putExtra("ecnt",Integer.parseInt(eone_cnt.getText().toString()));
                     replyIntent.putExtra("eperiod",eperiod); //1 이면 원데이 2이면 먼슬리
@@ -212,8 +238,6 @@ public class EditOneday extends AppCompatActivity  {
                         //layout.setBackgroundColor(color);  // OK 버튼 클릭 시 이벤트
                         epallete.setBackgroundColor(color);
                         eposi = position;
-                        //
-
                         if(eposi == 0){
                             eclname = "오렌지";
                         }else if(eposi == 1){
@@ -241,10 +265,8 @@ public class EditOneday extends AppCompatActivity  {
                     }
                     @Override
                     public void onCancel() {
-                        // Cancel 버튼 클릭 시 이벤트
                     }
                 }).show();  // dialog 생성
-        //색 잘 들어가는지 확인
     }
 
 
@@ -269,7 +291,6 @@ public class EditOneday extends AppCompatActivity  {
         }
     }
 
-    //메인스레드에서 데이터베이스에 접근할 수 없으므로 AsyncTask를 사용하도록 한다.
     public static class insertAsyncTask extends AsyncTask<Note, Void, Void> {
         private LensDao mLensDao;
 
@@ -279,9 +300,7 @@ public class EditOneday extends AppCompatActivity  {
 
         @Override //백그라운드작업(메인스레드 X)
         protected Void doInBackground(Note... lens) {
-            //추가만하고 따로 SELECT문을 안해도 라이브데이터로 인해
-            //getAll()이 반응해서 데이터를 갱신해서 보여줄 것이다,  메인액티비티에 옵저버에 쓴 코드가 실행된다. (라이브데이터는 스스로 백그라운드로 처리해준다.)
-            mLensDao.insert(lens[0]);
+             mLensDao.insert(lens[0]);
             return null;
         }
     }

@@ -36,6 +36,8 @@ public class Monthly extends AppCompatActivity {
     String imon;
     private EditText mon_cnt;
     private EditText mon_cycle;
+    private Button monthly_decrease_btn;
+    private Button monthly_increase_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +53,40 @@ public class Monthly extends AppCompatActivity {
         mon_cnt = (EditText)findViewById(R.id.Monthly_cnt);
         mon_cycle = (EditText)findViewById(R.id.Monthly_cycle);
         Button m_save =findViewById(R.id.Monthly_save);
+        monthly_increase_btn = findViewById(R.id.monthly_increase_btn);
+        monthly_decrease_btn = findViewById(R.id.monthly_decrease_btn);
 
         final Context context = this;
+
+
         //렌즈 유형
         mon_type.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 type();
             }
         });
+
+        monthly_increase_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int one_i = Integer.parseInt(String.valueOf(mon_cnt.getText()));
+                one_i+=1;
+                mon_cnt.setText(Integer.toString(one_i));
+
+            }
+        });
+
+        monthly_decrease_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int one_d = Integer.parseInt(String.valueOf(mon_cnt.getText()));
+                if(one_d>=1){
+                    one_d-=1;
+                    mon_cnt.setText(Integer.toString(one_d));
+                }
+            }
+        });
+
 
         m_save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -89,8 +117,6 @@ public class Monthly extends AppCompatActivity {
                     new DatePickerDialog(Monthly.this, myDatePicker_end, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
-
-
 
         //x 버튼
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -144,7 +170,6 @@ public class Monthly extends AppCompatActivity {
                 .setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
                     @Override
                     public void onChooseColor(int position, int color) {
-                        //layout.setBackgroundColor(color);  // OK 버튼 클릭 시 이벤트
                         pallete.setBackgroundColor(color);
                         posi = position;
                         //

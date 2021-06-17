@@ -131,9 +131,10 @@
 
                     <EditText
                         android:id="@+id/eMonthly_cnt"
-                        android:layout_width="300dp"
+                        android:layout_width="190dp"
                         android:layout_height="wrap_content"
                         android:hint="ex) 30 "
+                        android:text="0"
                         android:inputType="phone"
                         android:textColor="@color/gray7"
                         android:textSize="20sp"
@@ -141,6 +142,39 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toTopOf="@id/emonth_cycle_text"
                         app:layout_constraintTop_toBottomOf="@id/emonth_cnt_text"/>
+
+                    <Button
+                        android:id="@+id/emonthly_decrease_btn"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="#88B6BDC3"
+                        android:fontFamily="@font/nanumsquare_eb"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        app:layout_constraintBottom_toTopOf="@id/emonth_cycle_text"
+                        app:layout_constraintLeft_toRightOf="@+id/eMonthly_cnt"
+                        app:layout_constraintTop_toBottomOf="@id/emonth_cnt_text" />
+
+                    <Button
+                        android:id="@+id/emonthly_increase_btn"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="#88B6BDC3"
+                        android:text="+"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:fontFamily="@font/nanumsquare_r"
+                        app:layout_constraintBottom_toTopOf="@id/emonth_cycle_text"
+                        app:layout_constraintLeft_toRightOf="@+id/emonthly_decrease_btn"
+                        app:layout_constraintTop_toBottomOf="@id/emonth_cnt_text" />
+
 
                     <TextView
                         android:id="@+id/emonth_cycle_text"

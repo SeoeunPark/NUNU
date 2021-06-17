@@ -8,7 +8,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.AsyncTask;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -34,6 +37,8 @@ public class Oneday extends AppCompatActivity  {
     private String clname;  // 렌즈 색
     private String o_dday;
     private Button cancel; //X 버튼
+    private Button oneday_decrease_btn;
+    private Button oneday_increase_btn;
     private EditText one_type; // 렌즈유형
     private LensDao mLensDao;
     Note note;
@@ -50,12 +55,15 @@ public class Oneday extends AppCompatActivity  {
         cancel = (Button) findViewById(R.id.to_main);
         one_type = (EditText)findViewById(R.id.Oneday_type);
         Button o_save = findViewById(R.id.Oneday_save);
+        oneday_increase_btn = findViewById(R.id.oneday_increase_btn);
+        oneday_decrease_btn = findViewById(R.id.oneday_decrease_btn);
 
         one_type.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 type();
             }
         });
+
 
         o_save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -76,6 +84,27 @@ public class Oneday extends AppCompatActivity  {
                     replyIntent.putExtra("end",et_Date.getText().toString());
                     setResult(RESULT_OK, replyIntent);
                     finish();
+                }
+            }
+        });
+        
+        oneday_increase_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int one_i = Integer.parseInt(String.valueOf(one_cnt.getText()));
+                one_i+=1;
+                one_cnt.setText(Integer.toString(one_i));
+
+            }
+        });
+
+        oneday_decrease_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int one_d = Integer.parseInt(String.valueOf(one_cnt.getText()));
+                if(one_d>=1){
+                    one_d-=1;
+                    one_cnt.setText(Integer.toString(one_d));
                 }
             }
         });
@@ -198,7 +227,6 @@ public class Oneday extends AppCompatActivity  {
         }
     }
 
-    //메인스레드에서 데이터베이스에 접근할 수 없으므로 AsyncTask를 사용하도록 한다.
     public static class insertAsyncTask extends AsyncTask<Note, Void, Void> {
         private LensDao mLensDao;
 
@@ -208,8 +236,6 @@ public class Oneday extends AppCompatActivity  {
 
         @Override //백그라운드작업(메인스레드 X)
         protected Void doInBackground(Note... lens) {
-            //추가만하고 따로 SELECT문을 안해도 라이브데이터로 인해
-            //getAll()이 반응해서 데이터를 갱신해서 보여줄 것이다,  메인액티비티에 옵저버에 쓴 코드가 실행된다. (라이브데이터는 스스로 백그라운드로 처리해준다.)
             mLensDao.insert(lens[0]);
             return null;
         }
