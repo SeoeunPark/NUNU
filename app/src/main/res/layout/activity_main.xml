@@ -23,7 +23,14 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/bottom"
         />
+        <LinearLayout
+            android:id="@+id/bottom"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal" />
         </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

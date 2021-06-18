@@ -22,11 +22,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".EditOneday"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" /> <!-- <activity -->
-        <!-- android:name=".Detail" -->
-        <!-- android:theme="@style/Theme.AppCompat.Dialog" -->
-        <!-- android:screenOrientation="portrait" -->
-        <!-- /> -->
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Detail"
             android:launchMode="singleTask"
