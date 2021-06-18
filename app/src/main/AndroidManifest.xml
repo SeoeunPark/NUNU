@@ -15,10 +15,8 @@
         android:roundIcon="@mipmap/ic_main_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CustomDialog"></activity>
         <activity android:name=".modifysight" />
         <activity android:name=".modifyname" />
-        <activity android:name=".LensInsert" />
         <activity
             android:name=".EditMonthly"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -31,6 +29,7 @@
         <!-- /> -->
         <activity
             android:name=".Detail"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/MyPopupMenu" />
         <activity
