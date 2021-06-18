@@ -69,19 +69,38 @@ public class Monthly extends AppCompatActivity {
         monthly_increase_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int one_i = Integer.parseInt(String.valueOf(mon_cnt.getText()));
-                one_i+=1;
+                int one_i=0;
+                if(mon_cnt.getText().length()>0){
+                    boolean isNumeric = mon_cnt.getText().chars().allMatch( Character::isDigit );
+                    if(isNumeric==true){
+                        one_i = Integer.parseInt(String.valueOf(mon_cnt.getText()));
+                        one_i+=1;
+                    }else{
+                        one_i+=1;
+                    }
+                }else{
+                    one_i+=1;
+                }
                 mon_cnt.setText(Integer.toString(one_i));
-
             }
         });
 
         monthly_decrease_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int one_d = Integer.parseInt(String.valueOf(mon_cnt.getText()));
-                if(one_d>=1){
-                    one_d-=1;
+                int one_d=0;
+                if(mon_cnt.getText().length()>0) {
+                    boolean isNumeric = mon_cnt.getText().chars().allMatch(Character::isDigit);
+                    if (isNumeric == true) {
+                        if (Integer.parseInt(String.valueOf(mon_cnt.getText())) >= 1) {
+                            one_d = Integer.parseInt(String.valueOf(mon_cnt.getText()));
+                            one_d -= 1;
+                        } else {
+                            one_d = 0;
+                        }
+                    } else {
+                        one_d = 0;
+                    }
                     mon_cnt.setText(Integer.toString(one_d));
                 }
             }
@@ -107,6 +126,7 @@ public class Monthly extends AppCompatActivity {
                     replyIntent.putExtra("start",mon_cycle.getText().toString());
                     replyIntent.putExtra("end",monthly_end.getText().toString());
                     setResult(RESULT_OK, replyIntent);
+                    Toast.makeText(context,"렌즈가 추가되었습니다", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }

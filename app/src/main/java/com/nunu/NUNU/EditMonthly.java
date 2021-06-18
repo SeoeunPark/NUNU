@@ -137,8 +137,19 @@ public class EditMonthly extends AppCompatActivity {
             emonthly_increase_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int one_i = Integer.parseInt(String.valueOf(emon_cnt.getText()));
-                    one_i+=1;
+                    int one_i=0;
+                    if(emon_cnt.getText().length()>0){
+                        boolean isNumeric = emon_cnt.getText().chars().allMatch( Character::isDigit );
+                        if(isNumeric==true){
+                            one_i = Integer.parseInt(String.valueOf(emon_cnt.getText()));
+                            one_i+=1;
+                        }else{
+                            one_i+=1;
+                        }
+                    }else{
+                        one_i+=1;
+                    }
+
                     emon_cnt.setText(Integer.toString(one_i));
 
                 }
@@ -147,9 +158,19 @@ public class EditMonthly extends AppCompatActivity {
             emonthly_decrease_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int one_d = Integer.parseInt(String.valueOf(emon_cnt.getText()));
-                    if(one_d>=1){
-                        one_d-=1;
+                    int one_d=0;
+                    if(emon_cnt.getText().length()>0) {
+                        boolean isNumeric = emon_cnt.getText().chars().allMatch(Character::isDigit);
+                        if (isNumeric == true) {
+                            if (Integer.parseInt(String.valueOf(emon_cnt.getText())) >= 1) {
+                                one_d = Integer.parseInt(String.valueOf(emon_cnt.getText()));
+                                one_d -= 1;
+                            } else {
+                                one_d = 0;
+                            }
+                        } else {
+                            one_d = 0;
+                        }
                         emon_cnt.setText(Integer.toString(one_d));
                     }
                 }

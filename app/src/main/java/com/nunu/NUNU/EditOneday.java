@@ -132,8 +132,18 @@ public class EditOneday extends AppCompatActivity  {
         eoneday_increase_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int one_i = Integer.parseInt(String.valueOf(eone_cnt.getText()));
-                one_i+=1;
+                int one_i=0;
+                if(eone_cnt.getText().length()>0){
+                    boolean isNumeric = eone_cnt.getText().chars().allMatch( Character::isDigit );
+                    if(isNumeric==true){
+                        one_i = Integer.parseInt(String.valueOf(eone_cnt.getText()));
+                        one_i+=1;
+                    }else{
+                        one_i+=1;
+                    }
+                }else{
+                    one_i+=1;
+                }
                 eone_cnt.setText(Integer.toString(one_i));
 
             }
@@ -142,9 +152,19 @@ public class EditOneday extends AppCompatActivity  {
         eoneday_decrease_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int one_d = Integer.parseInt(String.valueOf(eone_cnt.getText()));
-                if(one_d>=1){
-                    one_d-=1;
+                int one_d=0;
+                if(eone_cnt.getText().length()>0) {
+                    boolean isNumeric = eone_cnt.getText().chars().allMatch(Character::isDigit);
+                    if (isNumeric == true) {
+                        if (Integer.parseInt(String.valueOf(eone_cnt.getText())) >= 1) {
+                            one_d = Integer.parseInt(String.valueOf(eone_cnt.getText()));
+                            one_d -= 1;
+                        } else {
+                            one_d = 0;
+                        }
+                    } else {
+                        one_d = 0;
+                    }
                     eone_cnt.setText(Integer.toString(one_d));
                 }
             }

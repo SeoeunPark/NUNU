@@ -1,10 +1,13 @@
 package com.nunu.NUNU;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -59,6 +63,7 @@ public class Lens extends Fragment implements View.OnClickListener {
     Context context;
     Oneday oneday;
     Monthly monthly;
+    Dialog dialog;
 
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
     public static final int EDIT_NOTE_REQUEST = 2;
@@ -91,6 +96,11 @@ public class Lens extends Fragment implements View.OnClickListener {
         monthly_btn = (Button)rootView.findViewById(R.id.monthly_select_btn);
         oneday_btn = (Button)rootView.findViewById(R.id.oneday_select_btn);
         add_lens_btn = (Button)rootView.findViewById(R.id.add_lens_btn);
+
+        dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
+        dialog.setContentView(R.layout.delete_dialog);
+
         super.onCreate(savedInstanceState);
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
@@ -117,8 +127,26 @@ public class Lens extends Fragment implements View.OnClickListener {
         swipeController = new SwipeController (new SwipeControllerActions () {
             @Override
             public void onRightClicked (int position) {
-                mWordViewModel.delete(adapter.getNoteAt(position));
-                //Toast.makeText(getActivity(), "렌즈가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                dialog.show(); // 다이얼로그 띄우기
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); // 투명 배경
+
+                Button noBtn = dialog.findViewById(R.id.noBtn);
+                noBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss(); // 다이얼로그 닫기
+                    }
+                });
+                // 네 버튼
+                dialog.findViewById(R.id.yesBtn).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mWordViewModel.delete(adapter.getNoteAt(position));
+                        Toast.makeText(getActivity(), "렌즈가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss(); // 다이얼로그 닫기
+                    }
+                });
+
             }
             public void onLeftClicked(int position) {
                 if (adapter.getNoteAt(position).getLens_period() == 1) {
@@ -197,6 +225,7 @@ public class Lens extends Fragment implements View.OnClickListener {
                 monthly_btn.setBackgroundResource(R.drawable.lens_unselect_button);
                 monthly_btn.setTextColor(Color.parseColor("#7C889A"));
                 one_or_mon=1;
+                Toast.makeText(getActivity(),"원데이 렌즈가 선택되었습니다.", Toast.LENGTH_SHORT).show();
             }
         });
         monthly_btn.setOnClickListener(new View.OnClickListener() {
@@ -206,6 +235,7 @@ public class Lens extends Fragment implements View.OnClickListener {
                 oneday_btn.setBackgroundResource(R.drawable.lens_unselect_button);
                 oneday_btn.setTextColor(Color.parseColor("#7C889A"));
                 one_or_mon=2;
+                Toast.makeText(getActivity(),"기간 렌즈가 선택되었습니다.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -241,6 +271,7 @@ public class Lens extends Fragment implements View.OnClickListener {
         switch (item.getItemId()) {
             case R.id.delete_all_notes:
                 mWordViewModel.deleteAllNotes();
+                Toast.makeText(getActivity(),"모든 렌즈가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
