@@ -168,6 +168,7 @@ public class Stretching2 extends Fragment {
                 play.setVisibility(View.VISIBLE);
                 pause.setVisibility(View.GONE);
                 timerStatus = TimerStatus.STOPPED;
+               // getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, next).commitAllowingStateLoss();
             }
         }.start();
         countDownTimer.start();

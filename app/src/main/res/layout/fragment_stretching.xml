@@ -35,9 +35,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="10초간 천장을 바라보세요"
-        android:textSize="30sp"
         android:fontFamily="@font/nanumsquare_r"
+        android:text="10초간 천장을 올려다보세요."
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />

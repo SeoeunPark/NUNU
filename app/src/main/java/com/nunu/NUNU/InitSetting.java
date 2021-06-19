@@ -6,11 +6,14 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
 import java.text.SimpleDateFormat;
@@ -22,6 +25,7 @@ public class InitSetting extends Fragment {
     public EditText set_left;
     public EditText set_right;
     private TextView show_data;
+    private Button out_btn;
     User user = new User();
 
     @Override
@@ -46,7 +50,16 @@ public class InitSetting extends Fragment {
         set_name = rootView.findViewById(R.id.set_name);
         set_left = rootView.findViewById(R.id.set_left);
         set_right = rootView.findViewById(R.id.set_right);
+        out_btn = rootView.findViewById(R.id.out_button);
 
+        out_btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.main_layout, user).commit();
+
+            }
+        });
 
         rootView.findViewById(R.id.add_button).setOnClickListener(new View.OnClickListener() {
             SimpleDateFormat fdate = new SimpleDateFormat("MM/dd");
