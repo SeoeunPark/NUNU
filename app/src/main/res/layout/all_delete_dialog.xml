@@ -15,7 +15,7 @@
         android:textSize="23sp"
         android:fontFamily="@font/nanumsquare_b"
         android:padding="30dp"
-        android:text="렌즈를 삭제하시겠습니까?" />
+        android:text="모든 렌즈를 삭제하시겠습니까?" />
 
     <LinearLayout
         android:layout_width="match_parent"

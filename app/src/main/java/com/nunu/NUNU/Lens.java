@@ -64,6 +64,7 @@ public class Lens extends Fragment implements View.OnClickListener {
     Oneday oneday;
     Monthly monthly;
     Dialog dialog;
+    Dialog all_dialog;
 
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
     public static final int EDIT_NOTE_REQUEST = 2;
@@ -96,6 +97,10 @@ public class Lens extends Fragment implements View.OnClickListener {
         monthly_btn = (Button)rootView.findViewById(R.id.monthly_select_btn);
         oneday_btn = (Button)rootView.findViewById(R.id.oneday_select_btn);
         add_lens_btn = (Button)rootView.findViewById(R.id.add_lens_btn);
+
+        all_dialog = new Dialog(getActivity());
+        all_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
+        all_dialog.setContentView(R.layout.all_delete_dialog);
 
         dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
@@ -270,8 +275,27 @@ public class Lens extends Fragment implements View.OnClickListener {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.delete_all_notes:
-                mWordViewModel.deleteAllNotes();
-                Toast.makeText(getActivity(),"모든 렌즈가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                all_dialog.show(); // 다이얼로그 띄우기
+                all_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); // 투명 배경
+
+                Button noBtn = all_dialog.findViewById(R.id.noBtn);
+                noBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // 원하는 기능 구현
+                        all_dialog.dismiss(); // 다이얼로그 닫기
+                    }
+                });
+                // 네 버튼
+                all_dialog.findViewById(R.id.yesBtn).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // 원하는 기능 구현
+                        mWordViewModel.deleteAllNotes();
+                        Toast.makeText(getActivity(),"모든 렌즈가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                        all_dialog.dismiss();           // 앱 종료
+                    }
+                });
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
