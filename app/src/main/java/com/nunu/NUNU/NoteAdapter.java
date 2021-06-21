@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {//implements OnPersonItemClickListener{
@@ -107,6 +108,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {/
     }
 
     public void setItems(List<Note> notes) {
+        Collections.sort(notes,new Sortlens());
         mNotes = notes;
         notifyDataSetChanged();
     }
