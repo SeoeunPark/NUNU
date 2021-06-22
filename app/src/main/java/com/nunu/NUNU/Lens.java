@@ -45,9 +45,6 @@ import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 public class Lens extends Fragment implements View.OnClickListener {
     private static final String TAG = "Lens";
-//    private Animation fab_open, fab_close;
-//    private Boolean isFabOpen = false;
-//    private FloatingActionButton fab, fab1, fab2;
     RecyclerView recyclerView;
     private List<Note> mDataItemList;
     private NoteAdapter mListAdapter;
@@ -189,8 +186,6 @@ public class Lens extends Fragment implements View.OnClickListener {
             }
         });
 
-        //클릭했을 때의 이벤트
-
         adapter.setOnItemClickListener(new NoteAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Note note) {
@@ -207,17 +202,16 @@ public class Lens extends Fragment implements View.OnClickListener {
                 getActivity().overridePendingTransition(R.anim.sliding_up, R.anim.stay);
             }
         });
-        //이건 floating 버튼 애니메이션
 
         add_lens_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(one_or_mon ==1){
-                    Intent o_intent = new Intent(view.getContext(), Oneday.class); //이거 진짜 중요
-                    startActivityForResult(o_intent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
+                    Intent o_intent = new Intent(view.getContext(), Oneday.class);
+                    startActivityForResult(o_intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
                 }else if (one_or_mon==2){
-                    Intent m_intent = new Intent(view.getContext(), Monthly.class); //이거 진짜 중요
-                    startActivityForResult(m_intent, NEW_WORD_ACTIVITY_REQUEST_CODE); // 이것도 중요
+                    Intent m_intent = new Intent(view.getContext(), Monthly.class);
+                    startActivityForResult(m_intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
                 }
             }
         });
@@ -253,7 +247,7 @@ public class Lens extends Fragment implements View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             Note word = new Note(data.getExtras().getString("name"), data.getExtras().getString("type"), data.getExtras().getInt("cnt"), data.getExtras().getInt("period"), data.getExtras().getString("cl"), data.getExtras().getString("start"), data.getExtras().getString("end"));
-            mWordViewModel.insert(word); //갑 저장
+            mWordViewModel.insert(word);
         } else if (requestCode == ED_NOTE_REQUEST && resultCode == Activity.RESULT_OK) {
             int id = data.getExtras().getInt("eid");
             Note word = new Note(data.getExtras().getString("ename"), data.getExtras().getString("etype"), data.getExtras().getInt("ecnt"), data.getExtras().getInt("eperiod"), data.getExtras().getString("ecl"), data.getExtras().getString("estart"), data.getExtras().getString("eend"));
@@ -261,7 +255,6 @@ public class Lens extends Fragment implements View.OnClickListener {
             mWordViewModel.update(word);
         }
     }
-    //adapter = new NoteAdapter();
 
     //lens_menu 가져와서 보여주기
     @Override
@@ -282,7 +275,6 @@ public class Lens extends Fragment implements View.OnClickListener {
                 noBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        // 원하는 기능 구현
                         all_dialog.dismiss(); // 다이얼로그 닫기
                     }
                 });
@@ -293,7 +285,7 @@ public class Lens extends Fragment implements View.OnClickListener {
                         // 원하는 기능 구현
                         mWordViewModel.deleteAllNotes();
                         Toast.makeText(getActivity(),"모든 렌즈가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
-                        all_dialog.dismiss();           // 앱 종료
+                        all_dialog.dismiss();
                     }
                 });
                 return true;

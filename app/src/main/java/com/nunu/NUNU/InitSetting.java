@@ -57,7 +57,6 @@ public class InitSetting extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.main_layout, user).commit();
-
             }
         });
 
@@ -83,11 +82,6 @@ public class InitSetting extends Fragment {
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, user).commitAllowingStateLoss();
                 }
                insertNum();
-//                현재 데이터 상태 확인하기 위한 코드
-//                String text = db.UserDao().getAll().toString();
-//                show_data.setText(text);
-
-                //show_data.setText(db.todoDao().getAll().get(5).toString()); getAll().get(숫자) 하면 원하는 거 가져올 수 있음
             }
 
             public void insertNum(){
@@ -130,15 +124,6 @@ public class InitSetting extends Fragment {
 
         });
 
-        //데이터 삭제 시 확인 코드
-//        rootView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//           public void onClick(View view) {
-//                db.UserDao().deleteAll();
-//                String text = db.UserDao().getAll().toString();
-//                show_data.setText(text);
-//            }
-//        });
 
     }
 

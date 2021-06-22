@@ -72,9 +72,6 @@ public class Option extends Fragment {
             public void onClick(View view) {
                 delete_all_dia.show();
                 delete_all_dia.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); // 투명 배경
-//                AlertDialog.Builder builder = new AlertDialog.Builder(context , R.style.MyDialogTheme);
-//                builder.setTitle("데이터 초기화");
-//                builder.setMessage("데이터를 초기화하시겠습니까?");
                 Button noBtn = delete_all_dia.findViewById(R.id.noBtn);
                 Button yesBtn = delete_all_dia.findViewById(R.id.yesBtn);
                 yesBtn.setOnClickListener(new View.OnClickListener() {
