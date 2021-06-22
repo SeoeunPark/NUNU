@@ -1,14 +1,18 @@
 package com.nunu.NUNU;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -22,6 +26,7 @@ public class Option extends Fragment {
     modifyname ChangeName = new modifyname();
     modifysight ChangeSight = new modifysight();
     InitSetting ChangeAll = new InitSetting();
+    Dialog delete_all_dia;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +36,9 @@ public class Option extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        delete_all_dia = new Dialog(getActivity());
+        delete_all_dia.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
+        delete_all_dia.setContentView(R.layout.all_infodelete_dialog);
         View view = inflater.inflate(R.layout.fragment_option, null);
         Context context=container.getContext();
         final AppDatabase db = Room.databaseBuilder(context,AppDatabase.class,"userinfo-db")
@@ -62,25 +70,30 @@ public class Option extends Fragment {
         deleteAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context , R.style.MyDialogTheme);
-                builder.setTitle("데이터 초기화");
-                builder.setMessage("데이터를 초기화하시겠습니까?");
-                builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                delete_all_dia.show();
+                delete_all_dia.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); // 투명 배경
+//                AlertDialog.Builder builder = new AlertDialog.Builder(context , R.style.MyDialogTheme);
+//                builder.setTitle("데이터 초기화");
+//                builder.setMessage("데이터를 초기화하시겠습니까?");
+                Button noBtn = delete_all_dia.findViewById(R.id.noBtn);
+                Button yesBtn = delete_all_dia.findViewById(R.id.yesBtn);
+                yesBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                    public void onClick(View view) {
+                        // 원하는 기능 구현
                         db.UserDao().deleteAll();
                         Toast.makeText(context,"데이터가 초기화 되었습니다.",Toast.LENGTH_SHORT).show();
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeAll).commitAllowingStateLoss();
+                        delete_all_dia.dismiss(); // 다이얼로그 닫기
                     }
                 });
-                builder.setNegativeButton("아니오",null);
-
-                builder.create().show();
-//                CustomDialog customDialog = new CustomDialog(getContext());
-//
-//                customDialog.callFunction();
-
-
+                noBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // 원하는 기능 구현
+                        delete_all_dia.dismiss(); // 다이얼로그 닫기
+                    }
+                });
             }
         });
 
