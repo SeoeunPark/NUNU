@@ -49,7 +49,12 @@ public class InfoSetting extends AppCompatActivity {
         set_left = findViewById(R.id.set_left);
         set_right = findViewById(R.id.set_right);
         out_btn = findViewById(R.id.out_button);
-
+        String name = db.UserDao().getName();
+        String leftSight = db.UserDao().getLeft();
+        String rightSight = db.UserDao().getRight();
+        set_name.setText(name);
+        set_left.setText(leftSight);
+        set_right.setText(rightSight);
         out_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();            }

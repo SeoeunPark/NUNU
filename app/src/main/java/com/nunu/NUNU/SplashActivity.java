@@ -31,7 +31,6 @@ public class SplashActivity extends AppCompatActivity {
         if (isFirstRun) {
             Intent newIntent = new Intent(this, InitInfo.class);
             startActivity(newIntent);
-            //getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, InitSetting).commitAllowingStateLoss();
             prefs.edit().putBoolean("isFirstRun", false).apply();
         }else{
             Intent newIntent = new Intent(this, MainActivity.class);
