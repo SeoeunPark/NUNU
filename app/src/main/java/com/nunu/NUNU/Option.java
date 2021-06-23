@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ public class Option extends Fragment {
     modifyname ChangeName = new modifyname();
     modifysight ChangeSight = new modifysight();
     InfoSetting ChangeAll = new InfoSetting();
+    ImageView bell;
     Dialog delete_all_dia;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class Option extends Fragment {
         delete_all_dia = new Dialog(getActivity());
         delete_all_dia.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         delete_all_dia.setContentView(R.layout.all_infodelete_dialog);
+
         View view = inflater.inflate(R.layout.fragment_option, null);
         Context context=container.getContext();
         final AppDatabase db = Room.databaseBuilder(context,AppDatabase.class,"userinfo-db")
@@ -105,6 +108,16 @@ public class Option extends Fragment {
                 startActivity(intent);
             }
         });
+
+        bell = view.findViewById(R.id.bell);
+        bell.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + BuildConfig.APPLICATION_ID)));
+            }
+        });
+
         return view;
     }
 

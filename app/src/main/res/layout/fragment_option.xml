@@ -215,13 +215,16 @@
                 app:layout_constraintTop_toTopOf="@+id/deletedata"
                 app:srcCompat="@drawable/datadelete" />
 
-            <Switch
-                android:layout_width="294dp"
-                android:layout_height="108dp"
+            <ImageView
+                android:id="@+id/bell"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:thumb="@drawable/switch_thumb"
+                android:background="@drawable/bell"
                 android:track="@drawable/switch_track_selector"
+                android:layout_marginTop="30dp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView10"
-                app:layout_constraintHorizontal_bias="0.742"
+                app:layout_constraintHorizontal_bias="0.9"
                 app:layout_constraintStart_toEndOf="@+id/textView7"
                 app:layout_constraintTop_toTopOf="@+id/imageView10" />
             <!--            <Switch-->
