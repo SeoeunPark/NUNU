@@ -15,7 +15,7 @@ import androidx.room.Room;
 
 public class CustomDialog extends FragmentActivity {
     private Context context;
-    InitSetting ChangeAll = new InitSetting();
+    InfoSetting ChangeAll = new InfoSetting();
 
     public CustomDialog(Context context) {
         this.context = context;
@@ -42,7 +42,9 @@ public class CustomDialog extends FragmentActivity {
                 db.UserDao().deleteAll();
                 Toast.makeText(context, "삭제되었습니다.", Toast.LENGTH_SHORT).show();
                 dlg.dismiss();
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeAll).commitAllowingStateLoss();
+                Intent intent = new Intent(context, InfoSetting.class);
+                startActivity(intent);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeAll).commitAllowingStateLoss();
             }
         });
         cancelButton.setOnClickListener(new View.OnClickListener() {

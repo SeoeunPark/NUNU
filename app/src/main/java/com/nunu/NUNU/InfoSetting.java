@@ -1,9 +1,14 @@
 package com.nunu.NUNU;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
+
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -11,56 +16,46 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.room.Room;
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
-public class InitSetting extends Fragment {
+public class InfoSetting extends AppCompatActivity {
+    MeowBottomNavigation bottomNavigationView;
     public EditText set_name;
     public EditText set_left;
     public EditText set_right;
     private TextView show_data;
     private Button out_btn;
     User user = new User();
+    final Context context = this;
+
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_info_setting);
+        initInfo();
     }
 
-    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle
-            savedInstanceState){
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_init_setting, container, false);
-        initInfo(rootView);
-        return rootView;
-    }
-
-    private void initInfo(ViewGroup rootView){
-        Context context = getContext();
+    private void initInfo(){
         final AppDatabase db = Room.databaseBuilder(context,AppDatabase.class,"userinfo-db")
                 .fallbackToDestructiveMigration ()
                 .allowMainThreadQueries()
                 .build();
 
-        set_name = rootView.findViewById(R.id.set_name);
-        set_left = rootView.findViewById(R.id.set_left);
-        set_right = rootView.findViewById(R.id.set_right);
-        out_btn = rootView.findViewById(R.id.out_button);
+        set_name = findViewById(R.id.set_name);
+        set_left = findViewById(R.id.set_left);
+        set_right = findViewById(R.id.set_right);
+        out_btn = findViewById(R.id.out_button);
 
         out_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.main_layout, user).commit();
-            }
+                finish();            }
         });
 
-        rootView.findViewById(R.id.add_button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.add_button).setOnClickListener(new View.OnClickListener() {
             SimpleDateFormat fdate = new SimpleDateFormat("MM/dd");
             Date date = new Date();
             @Override
@@ -79,9 +74,8 @@ public class InitSetting extends Fragment {
                     Toast.makeText(context,"정보가 입력되었습니다.",Toast.LENGTH_SHORT).show();
                     db.UserDao().insert(new UserInfo(set_name.getText().toString(),set_left.getText().toString(),set_right.getText().toString(),fdate.format(date)));
                     db.close();
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, user).commitAllowingStateLoss();
-                }
-               insertNum();
+                    finish();                }
+                insertNum();
             }
 
             public void insertNum(){

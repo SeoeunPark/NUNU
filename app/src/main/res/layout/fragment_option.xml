@@ -215,6 +215,13 @@
                 app:layout_constraintTop_toTopOf="@+id/deletedata"
                 app:srcCompat="@drawable/datadelete" />
 
+<!--            <Switch-->
+<!--                android:id="@+id/switch1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                tools:layout_editor_absoluteX="535dp"-->
+<!--                tools:layout_editor_absoluteY="807dp" />-->
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>

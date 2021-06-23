@@ -35,7 +35,7 @@ public class User extends Fragment {
     TextView userTextView;
     TextView leftSightTextView;
     TextView rightSightTextView;
-    InitSetting initSetting;
+    InfoSetting initSetting;
 
     
     public User(){
@@ -47,7 +47,7 @@ public class User extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         option = new Option();
-        initSetting = new InitSetting();
+        initSetting = new InfoSetting();
     }
 
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle

@@ -36,7 +36,7 @@ public class modifyname extends AppCompatActivity {
                 .build();
         nowText = findViewById(R.id.nowText);
         String name = db.UserDao().getName();
-        nowText.setText("현재 등록된 이름은 "+name+"이에요.");
+        nowText.setText("현재 등록된 이름은 "+name+"입니다.");
         db.close();
     }
 

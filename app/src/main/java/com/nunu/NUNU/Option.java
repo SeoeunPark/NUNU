@@ -25,7 +25,7 @@ public class Option extends Fragment {
     User User = new User();
     modifyname ChangeName = new modifyname();
     modifysight ChangeSight = new modifysight();
-    InitSetting ChangeAll = new InitSetting();
+    InfoSetting ChangeAll = new InfoSetting();
     Dialog delete_all_dia;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,7 +80,9 @@ public class Option extends Fragment {
                         // 원하는 기능 구현
                         db.UserDao().deleteAll();
                         Toast.makeText(context,"데이터가 초기화 되었습니다.",Toast.LENGTH_SHORT).show();
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeAll).commitAllowingStateLoss();
+//                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeAll).commitAllowingStateLoss();
+                        Intent intent = new Intent(getActivity(), InfoSetting.class);
+                        startActivity(intent);
                         delete_all_dia.dismiss(); // 다이얼로그 닫기
                     }
                 });
@@ -98,7 +100,9 @@ public class Option extends Fragment {
         updateAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeAll).commitAllowingStateLoss();
+//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeAll).commitAllowingStateLoss();
+                Intent intent = new Intent(getActivity(), InfoSetting.class);
+                startActivity(intent);
             }
         });
         return view;

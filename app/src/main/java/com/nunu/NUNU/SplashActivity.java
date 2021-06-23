@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
     public SharedPreferences prefs; // 선언하기
-    Fragment InitSetting = new InitSetting();
+    AppCompatActivity InitSetting = new InfoSetting();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
