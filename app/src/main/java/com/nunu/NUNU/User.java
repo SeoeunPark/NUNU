@@ -36,6 +36,7 @@ public class User extends Fragment {
     TextView leftSightTextView;
     TextView rightSightTextView;
     InfoSetting initSetting;
+    TextView updateDate;
 
     
     public User(){
@@ -70,6 +71,10 @@ public class User extends Fragment {
                 .fallbackToDestructiveMigration ()
                 .allowMainThreadQueries()
                 .build();
+
+        updateDate = rootView.findViewById(R.id.update_date);
+        String date = db.UserDao().getDate();
+        updateDate.setText("최근 업데이트 날짜 : "+date);
 
         userTextView = rootView.findViewById(R.id.username);
         String name = db.UserDao().getName();
