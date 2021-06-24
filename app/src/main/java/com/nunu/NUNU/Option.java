@@ -84,7 +84,7 @@ public class Option extends Fragment {
                         db.UserDao().deleteAll();
                         Toast.makeText(context,"데이터가 초기화 되었습니다.",Toast.LENGTH_SHORT).show();
 //                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, ChangeAll).commitAllowingStateLoss();
-                        Intent intent = new Intent(getActivity(), InfoSetting.class);
+                        Intent intent = new Intent(getActivity(), InitInfo.class);
                         startActivity(intent);
                         delete_all_dia.dismiss(); // 다이얼로그 닫기
                     }
